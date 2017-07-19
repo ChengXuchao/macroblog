@@ -359,6 +359,10 @@
           
 
           
+              <div class="post-description">
+                  基于Hexo+NexT+GitHub搭建个人博客
+              </div>
+          
 
         </div>
       </header>
@@ -371,14 +375,34 @@
 
       
         
-          基于Hexo+NexT+GitHub搭建个人博客
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/07/18/blog-base-on-hexo-next-github/">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <h1 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>中文官方网址：<a href="https://hexo.io/zh-cn/" target="_blank" rel="external">https://hexo.io/zh-cn/</a></p>
+<p>安装Hexo的步骤非常简单，而且官网文档也非常详尽，官网文档地址：<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="external">https://hexo.io/zh-cn/docs/</a></p>
+<p>安装 Hexo 相当简单。然而在安装前，您必须检查电脑中是否已安装下列应用程序：</p>
+<ul>
+<li><a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js</a></li>
+</ul>
+<p>如果您的电脑中已经安装上述必备程序，那么恭喜您！接下来只需要使用 npm 即可完成 Hexo 的安装。</p>
+<pre><code>$ npm install -g hexo-cli
+</code></pre><p>完成上述操作Hexo就算安装完成了，非常简单。</p>
+<h2 id="建站"><a href="#建站" class="headerlink" title="建站"></a>建站</h2><p>参见官方文档地址：<a href="https://hexo.io/zh-cn/docs/setup.html" target="_blank" rel="external">https://hexo.io/zh-cn/docs/setup.html</a></p>
+<p>安装 Hexo 完成后，请执行下列命令，Hexo 将会在指定文件夹中新建所需要的文件。</p>
+<pre><code>$ hexo init &lt;folder&gt;
+$ cd &lt;folder&gt;
+ $ npm install
+</code></pre><p>新建完成后，指定文件夹的目录如下：</p>
+<p>.<br>├── _config.yml<br>├── package.json<br>├── scaffolds<br>├── source<br>|   ├── _drafts<br>|   └── _posts<br>└── themes  </p>
+<p>_config.yml 网站的配置信息，您可以在此配置大部分的参数。<br>关于配置官网也给出了非常详细的说明：<a href="https://hexo.io/zh-cn/docs/configuration.html" target="_blank" rel="external">https://hexo.io/zh-cn/docs/configuration.html</a></p>
+<p><strong>需要特别注意的点是： 属性设置后面的：需要有空格再填写内容！！！</strong></p>
+<h1 id="安装NexT主题"><a href="#安装NexT主题" class="headerlink" title="安装NexT主题"></a>安装NexT主题</h1><p>Hexo是支持各种主题安装的，而NexT只是其中的一个，其他你可以到Hexo的<a href="https://hexo.io/themes/" target="_blank" rel="external">主题库</a>里去选自己喜欢的主题，因为我目前选用的就是NexT主题所以这里就着重介绍这个主题的安装。</p>
+<p>NexT主题官网地址：<a href="http://theme-next.iissnan.com/" target="_blank" rel="external">http://theme-next.iissnan.com/</a></p>
+<p>NexT的安装在官网上也有非常详细的说明，官方文档地址：<a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="external">http://theme-next.iissnan.com/getting-started.html</a></p>
+<p>将主题文件下载下来之后，拷贝到站点目录下的 themes 目录下，然后再在站点的配置文件_config.yml中修改一下配置：</p>
+<pre><code>theme: next
+</code></pre><p>即可。</p>
+<h1 id="GitHub"><a href="#GitHub" class="headerlink" title="GitHub"></a>GitHub</h1><h2 id="申请注册账号"><a href="#申请注册账号" class="headerlink" title="申请注册账号"></a>申请注册账号</h2><p>GitHub官网：<a href="https://github.com" target="_blank" rel="external">https://github.com</a><br>申请注册一个账号就可以了。</p>
+<h2 id="建立一个代码仓库"><a href="#建立一个代码仓库" class="headerlink" title="建立一个代码仓库"></a>建立一个代码仓库</h2>
+          
         
       
     </div>
@@ -667,6 +691,9 @@
   
 
   
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.1"></script>
+
 
   
 
