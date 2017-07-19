@@ -103,7 +103,7 @@
 <meta property="og:site_name" content="Macro Cheng - Coding is an ART!">
 <meta property="og:description" content="Hexo安装中文官方网址：https://hexo.io/zh-cn/ 安装Hexo的步骤非常简单，而且官网文档也非常详尽，官网文档地址：https://hexo.io/zh-cn/docs/ 安装 Hexo 相当简单。然而在安装前，您必须检查电脑中是否已安装下列应用程序：  Node.js  如果您的电脑中已经安装上述必备程序，那么恭喜您！接下来只需要使用 npm 即可完成 Hexo 的安装。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-07-19T06:00:41.724Z">
+<meta property="og:updated_time" content="2017-07-19T06:02:41.325Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于Hexo+NexT+GitHub搭建个人博客">
 <meta name="twitter:description" content="Hexo安装中文官方网址：https://hexo.io/zh-cn/ 安装Hexo的步骤非常简单，而且官网文档也非常详尽，官网文档地址：https://hexo.io/zh-cn/docs/ 安装 Hexo 相当简单。然而在安装前，您必须检查电脑中是否已安装下列应用程序：  Node.js  如果您的电脑中已经安装上述必备程序，那么恭喜您！接下来只需要使用 npm 即可完成 Hexo 的安装。">
@@ -389,6 +389,30 @@ $ cd &lt;folder&gt;
 <p>.<br>├── _config.yml<br>├── package.json<br>├── scaffolds<br>├── source<br>|   ├── _drafts<br>|   └── _posts<br>└── themes  </p>
 <p>_config.yml 网站的配置信息，您可以在此配置大部分的参数。<br>关于配置官网也给出了非常详细的说明：<a href="https://hexo.io/zh-cn/docs/configuration.html" target="_blank" rel="external">https://hexo.io/zh-cn/docs/configuration.html</a></p>
 <p><strong>需要特别注意的点是： 属性设置后面的：需要有空格再填写内容！！！</strong></p>
+<h2 id="写作"><a href="#写作" class="headerlink" title="写作"></a>写作</h2><p>默认情况下生成的时候是没有categories和tags的总目录的，这时候需要我们人为的添加。<br>在source目录里面新建两个文件夹分别命名为categories和tags，然后在每个目录下面都新建一个index.md的文件。<br>tags目录下的index.md文件内容为：  </p>
+<blockquote>
+<p>title: tags<br>date: 2015-10-20 06:49:50<br>type: “tags”<br>comments: false   </p>
+</blockquote>
+<p>categories目录下的index.md文件的内容为：  </p>
+<blockquote>
+<p>title: categories<br>date: 2015-10-20 06:49:50<br>type: “categories”<br>comments: false </p>
+</blockquote>
+<p>这样当编译的时候就会自动生成这两个总目录文件。  </p>
+<p>对于About页面也是一样，在source下面新建一个about目录，然后在目录里新建一个index.md再进行编辑或者直接用命令  </p>
+<pre><code>`hexo new page about `
+</code></pre><p>都是OK的。</p>
+<h2 id="生成时遇到的问题"><a href="#生成时遇到的问题" class="headerlink" title="生成时遇到的问题"></a>生成时遇到的问题</h2><p>当执行命令  </p>
+<pre><code>`hexo g -d`  
+</code></pre><p>时出错  </p>
+<blockquote>
+<p>Unhandled rejection TypeError: path.substring is not a function<br>at Object.urlForHelper (C:\Users\ThinkPad\Documents\GitHub\macroblog\node_modules\hexo\lib\plugins\helper\url_for.js:9:31)<br>…</p>
+</blockquote>
+<p>最后排查发现是因为在主题的设置中将rss 设置为了true，就会一直出现这个问题，当设置回false之后就又OK了。</p>
+<h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><p>建站完成之后我们还需要将网站部署到github上面，这个时候在项目的配置文件_config.yml中我们配置一下：</p>
+<blockquote>
+<p>deploy:<br> type: git<br> repo: <a href="https://github.com/ChengXuchao/macroblog.git" target="_blank" rel="external">https://github.com/ChengXuchao/macroblog.git</a><br> branch: master  </p>
+</blockquote>
+<p>这样之后每次使用命令<br>    <code>hexo g -d</code><br>就会自动部署到github上面</p>
 <h1 id="安装NexT主题"><a href="#安装NexT主题" class="headerlink" title="安装NexT主题"></a>安装NexT主题</h1><p>Hexo是支持各种主题安装的，而NexT只是其中的一个，其他你可以到Hexo的<a href="https://hexo.io/themes/" target="_blank" rel="external">主题库</a>里去选自己喜欢的主题，因为我目前选用的就是NexT主题所以这里就着重介绍这个主题的安装。</p>
 <p>NexT主题官网地址：<a href="http://theme-next.iissnan.com/" target="_blank" rel="external">http://theme-next.iissnan.com/</a></p>
 <p>NexT的安装在官网上也有非常详细的说明，官方文档地址：<a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="external">http://theme-next.iissnan.com/getting-started.html</a></p>
@@ -396,7 +420,15 @@ $ cd &lt;folder&gt;
 <pre><code>theme: next
 </code></pre><p>即可。</p>
 <h1 id="GitHub"><a href="#GitHub" class="headerlink" title="GitHub"></a>GitHub</h1><h2 id="申请注册账号"><a href="#申请注册账号" class="headerlink" title="申请注册账号"></a>申请注册账号</h2><p>GitHub官网：<a href="https://github.com" target="_blank" rel="external">https://github.com</a><br>申请注册一个账号就可以了。</p>
-<h2 id="建立一个代码仓库"><a href="#建立一个代码仓库" class="headerlink" title="建立一个代码仓库"></a>建立一个代码仓库</h2>
+<h2 id="建立一个代码仓库"><a href="#建立一个代码仓库" class="headerlink" title="建立一个代码仓库"></a>建立一个代码仓库</h2><p>进入到设置页面，找到 GitHub Pages 设置选项，选一个Source和Theme，这个时候代码仓库就变成了可以访问的网页了，就会为你分配一个地址，否则是不会有访问地址的，比如这个时候我的访问地址就是：<br><a href="https://chengxuchao.github.io/macroblog/" target="_blank" rel="external">https://chengxuchao.github.io/macroblog/</a>  </p>
+<p>此时我的个人主页就基本完成了，可以正常的访问和更新了。那么这个时候还有最后一步，就是如果你有一个域名的话就可以把域名直接映射上来。</p>
+<h2 id="映射域名"><a href="#映射域名" class="headerlink" title="映射域名"></a>映射域名</h2><p>将域名的CNAME映射到你的github的page项目上，比如我的地址是：chengxuchao.github.io。我的域名是macrocheng.me.<br>在项目的根目录新建一个文件CNAME没有后缀（在本地的source目录下），里面内容就是你的域名macrocheng.me.<br>同时在网站的配置文件_config.yml中设置：</p>
+<blockquote>
+<p>url: <a href="http://macrocheng.me">http://macrocheng.me</a><br>root: /   </p>
+</blockquote>
+<p>映射完之后，不管是通过macrocheng.me还是www.macrocheng.me都能直接访问到我的主页。</p>
+<p>到此整个配置就结束了，现在大家都可以通过macrocheng.me 来访问我的个人博客咯！是不是很酷？</p>
+
       
     </div>
 
@@ -425,11 +457,7 @@ $ cd &lt;folder&gt;
       
         <div class="post-tags">
           
-            <a href="/tags/Hexo/" rel="tag"># Hexo</a>
-          
-            <a href="/tags/NexT/" rel="tag"># NexT</a>
-          
-            <a href="/tags/GitHub/" rel="tag"># GitHub</a>
+            <a href="/tags/Hexo-NexT-GitHub/" rel="tag"># Hexo,NexT,GitHub</a>
           
         </div>
       
@@ -529,7 +557,7 @@ $ cd &lt;folder&gt;
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">1</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -571,7 +599,7 @@ $ cd &lt;folder&gt;
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo"><span class="nav-number">1.</span> <span class="nav-text">Hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">1.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#建站"><span class="nav-number">1.2.</span> <span class="nav-text">建站</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装NexT主题"><span class="nav-number">2.</span> <span class="nav-text">安装NexT主题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#GitHub"><span class="nav-number">3.</span> <span class="nav-text">GitHub</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#申请注册账号"><span class="nav-number">3.1.</span> <span class="nav-text">申请注册账号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#建立一个代码仓库"><span class="nav-number">3.2.</span> <span class="nav-text">建立一个代码仓库</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo"><span class="nav-number">1.</span> <span class="nav-text">Hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">1.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#建站"><span class="nav-number">1.2.</span> <span class="nav-text">建站</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#写作"><span class="nav-number">1.3.</span> <span class="nav-text">写作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生成时遇到的问题"><span class="nav-number">1.4.</span> <span class="nav-text">生成时遇到的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部署"><span class="nav-number">1.5.</span> <span class="nav-text">部署</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装NexT主题"><span class="nav-number">2.</span> <span class="nav-text">安装NexT主题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#GitHub"><span class="nav-number">3.</span> <span class="nav-text">GitHub</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#申请注册账号"><span class="nav-number">3.1.</span> <span class="nav-text">申请注册账号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#建立一个代码仓库"><span class="nav-number">3.2.</span> <span class="nav-text">建立一个代码仓库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#映射域名"><span class="nav-number">3.3.</span> <span class="nav-text">映射域名</span></a></li></ol></li></ol></div>
             
 
           </div>
