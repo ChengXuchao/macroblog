@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://macrocheng.me/"/>
-  <updated>2017-11-06T09:25:50.431Z</updated>
+  <updated>2017-11-06T09:20:54.747Z</updated>
   <id>http://macrocheng.me/</id>
   
   <author>
@@ -14,20 +14,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>how-to-customize-404-page</title>
-    <link href="http://macrocheng.me/2017/11/06/how-to-customize-404-page-1/"/>
-    <id>http://macrocheng.me/2017/11/06/how-to-customize-404-page-1/</id>
-    <published>2017-11-06T09:25:50.000Z</published>
-    <updated>2017-11-06T09:25:50.431Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
   
   <entry>
     <title>how-to-customize-404-page</title>
