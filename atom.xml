@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://macrocheng.me/"/>
-  <updated>2017-11-06T09:18:46.839Z</updated>
+  <updated>2017-11-06T14:59:16.744Z</updated>
   <id>http://macrocheng.me/</id>
   
   <author>
@@ -14,6 +14,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>how-to-customize-404-page</title>
+    <link href="http://macrocheng.me/2017/11/06/how-to-customize-404-page/"/>
+    <id>http://macrocheng.me/2017/11/06/how-to-customize-404-page/</id>
+    <published>2017-11-06T14:44:23.000Z</published>
+    <updated>2017-11-06T14:59:16.744Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;一-如何自定义&quot;&gt;&lt;a href=&quot;#一-如何自定义&quot; class=&quot;headerlink&quot; title=&quot;一 如何自定义&quot;&gt;&lt;/a&gt;一 如何自定义&lt;/h3&gt;&lt;p&gt;1.1 当别人访问到我们网站的一个不存在的地址的时候，这时候会跳转到404页面，那么我们这时候有必要
+    
+    </summary>
+    
+      <category term="开发笔记" scheme="http://macrocheng.me/categories/%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="Hexo" scheme="http://macrocheng.me/tags/Hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>怎么在Hexo的博文中插入图片</title>
