@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://macrocheng.me/"/>
-  <updated>2017-07-19T06:03:37.006Z</updated>
+  <updated>2017-11-06T08:56:38.168Z</updated>
   <id>http://macrocheng.me/</id>
   
   <author>
@@ -14,6 +14,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>怎么在Hexo的博文中插入图片</title>
+    <link href="http://macrocheng.me/2017/11/06/how-to-insert-image/"/>
+    <id>http://macrocheng.me/2017/11/06/how-to-insert-image/</id>
+    <published>2017-11-06T08:56:30.000Z</published>
+    <updated>2017-11-06T08:56:38.168Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Hexo&quot;&gt;&lt;a href=&quot;#Hexo&quot; class=&quot;headerlink&quot; title=&quot;Hexo&quot;&gt;&lt;/a&gt;Hexo&lt;/h1&gt;&lt;h2 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h
+    
+    </summary>
+    
+      <category term="开发笔记" scheme="http://macrocheng.me/categories/%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="Hexo" scheme="http://macrocheng.me/tags/Hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>基于Hexo+NexT+GitHub搭建个人博客</title>
