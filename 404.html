@@ -82,6 +82,8 @@
 
 
 
+  
+
 
   <link rel="alternate" href="/atom.xml" title="Macro Cheng - Coding is an ART!" type="application/atom+xml" />
 
@@ -95,14 +97,17 @@
 
 
 
+<meta name="description" content="function changeFrameHeight(){     var ifm= document.getElementById(&quot;myiframe&quot;);      ifm.height=document.documentElement.clientHeight; } window.onresize=function(){        changeFrameHeight();   }">
 <meta property="og:type" content="website">
 <meta property="og:title" content="404">
 <meta property="og:url" content="http://macrocheng.me/404.html">
 <meta property="og:site_name" content="Macro Cheng - Coding is an ART!">
+<meta property="og:description" content="function changeFrameHeight(){     var ifm= document.getElementById(&quot;myiframe&quot;);      ifm.height=document.documentElement.clientHeight; } window.onresize=function(){        changeFrameHeight();   }">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-07T12:25:23.079Z">
+<meta property="og:updated_time" content="2017-11-07T12:33:20.427Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="404">
+<meta name="twitter:description" content="function changeFrameHeight(){     var ifm= document.getElementById(&quot;myiframe&quot;);      ifm.height=document.documentElement.clientHeight; } window.onresize=function(){        changeFrameHeight();   }">
 
 
 
@@ -283,7 +288,16 @@
     
     
       <html>
-<iframe scrolling="no" frameborder="0" id="gongyi" src="nolayout/gy.html" width="100%" height="800" style="display:block;"></iframe>
+<iframe scrolling="no" frameborder="0" id="myiframe" src="nolayout/gy.html" width="100%" onload="changeFrameHeight()" style="display:block;"></iframe>
+<script>
+function changeFrameHeight(){
+    var ifm= document.getElementById("myiframe"); 
+    ifm.height=document.documentElement.clientHeight;
+}
+window.onresize=function(){  
+     changeFrameHeight();  
+} 
+</script>
 </html>
     
   </div>
