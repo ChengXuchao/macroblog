@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://macrocheng.me/"/>
-  <updated>2017-11-07T09:18:03.479Z</updated>
+  <updated>2017-11-07T09:26:07.886Z</updated>
   <id>http://macrocheng.me/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://macrocheng.me/2017/11/07/go-1-download-install-config/"/>
     <id>http://macrocheng.me/2017/11/07/go-1-download-install-config/</id>
     <published>2017-11-07T08:46:42.000Z</published>
-    <updated>2017-11-07T09:18:03.479Z</updated>
+    <updated>2017-11-07T09:26:07.886Z</updated>
     
     <summary type="html">
     
@@ -31,7 +31,7 @@
       <category term="开发笔记" scheme="http://macrocheng.me/categories/%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="GO" scheme="http://macrocheng.me/tags/GO/"/>
+      <category term="GO语言" scheme="http://macrocheng.me/tags/GO%E8%AF%AD%E8%A8%80/"/>
     
   </entry>
   
