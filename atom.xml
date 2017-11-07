@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://macrocheng.me/"/>
-  <updated>2017-11-06T15:04:43.427Z</updated>
+  <updated>2017-11-07T09:18:03.479Z</updated>
   <id>http://macrocheng.me/</id>
   
   <author>
@@ -14,6 +14,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>GO语言的下载、安装、配置</title>
+    <link href="http://macrocheng.me/2017/11/07/go-1-download-install-config/"/>
+    <id>http://macrocheng.me/2017/11/07/go-1-download-install-config/</id>
+    <published>2017-11-07T08:46:42.000Z</published>
+    <updated>2017-11-07T09:18:03.479Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;一、Go语言下载&quot;&gt;&lt;a href=&quot;#一、Go语言下载&quot; class=&quot;headerlink&quot; title=&quot;一、Go语言下载&quot;&gt;&lt;/a&gt;一、Go语言下载&lt;/h3&gt;&lt;p&gt;go语言官方下载地址：&lt;a href=&quot;https://golang.org/dl/&quot; ta
+    
+    </summary>
+    
+      <category term="开发笔记" scheme="http://macrocheng.me/categories/%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="GO" scheme="http://macrocheng.me/tags/GO/"/>
+    
+  </entry>
   
   <entry>
     <title>Hexo如何自定义404页面</title>
