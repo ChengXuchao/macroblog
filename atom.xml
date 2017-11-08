@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://macrocheng.me/"/>
-  <updated>2017-11-07T09:26:07.886Z</updated>
+  <updated>2017-11-08T00:28:14.297Z</updated>
   <id>http://macrocheng.me/</id>
   
   <author>
@@ -14,6 +14,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hexo跳过渲染，创建自定义页面</title>
+    <link href="http://macrocheng.me/2017/11/08/hexo-no-layout/"/>
+    <id>http://macrocheng.me/2017/11/08/hexo-no-layout/</id>
+    <published>2017-11-08T00:10:21.000Z</published>
+    <updated>2017-11-08T00:28:14.297Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;Hexo 博客中所生成的文章都是经由渲染的静态网页，而静态网页的样式都直接由 Hexo 的主题控制，所以 Hexo 博客大部分都呈现出一种高度的统一化与规范化。不过 Hexo 提供了跳过渲染功能，使得我们可以直接在博客中放入自定义网页。&lt;br&gt;比如
+    
+    </summary>
+    
+      <category term="开发笔记" scheme="http://macrocheng.me/categories/%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="Hexo" scheme="http://macrocheng.me/tags/Hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>GO语言的下载、安装、配置</title>
