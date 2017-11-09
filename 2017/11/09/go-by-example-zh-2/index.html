@@ -95,18 +95,18 @@
 
 
 
-<meta name="description" content="一、值Go 拥有各值类型，包括字符串，整形，浮点型，布尔型等。下面是一些基本的例子。 123456789101112131415package mainimport &amp;quot;fmt&amp;quot;func main() &amp;#123;    //字符串可以通过 + 连接。    fmt.Println(&amp;quot;go&amp;quot; + &amp;quot;lang&amp;quot;)        //整数和浮点">
+<meta name="description" content="一、for循环for 是 Go 中唯一的循环结构。这里有 for 循环的三个基本使用方式。   最常用的方式，带单个循环条件。  12345i := 1for i &amp;lt;= 3 &amp;#123;    fmt.Println(i)    i = i + 1&amp;#125;  经典的初始化/条件/后续形式 for 循环。  123for j := 7; j &amp;lt;= 9; j++ &amp;#123;    f">
 <meta name="keywords" content="GO语言">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Go by Example 中文：值，变量，常量">
-<meta property="og:url" content="http://macrocheng.me/2017/11/09/go-by-example-zh-1/index.html">
+<meta property="og:title" content="Go by Example 中文：for循环，if else分支，switch分支结构">
+<meta property="og:url" content="http://macrocheng.me/2017/11/09/go-by-example-zh-2/index.html">
 <meta property="og:site_name" content="Macro Cheng - Coding is an ART!">
-<meta property="og:description" content="一、值Go 拥有各值类型，包括字符串，整形，浮点型，布尔型等。下面是一些基本的例子。 123456789101112131415package mainimport &amp;quot;fmt&amp;quot;func main() &amp;#123;    //字符串可以通过 + 连接。    fmt.Println(&amp;quot;go&amp;quot; + &amp;quot;lang&amp;quot;)        //整数和浮点">
+<meta property="og:description" content="一、for循环for 是 Go 中唯一的循环结构。这里有 for 循环的三个基本使用方式。   最常用的方式，带单个循环条件。  12345i := 1for i &amp;lt;= 3 &amp;#123;    fmt.Println(i)    i = i + 1&amp;#125;  经典的初始化/条件/后续形式 for 循环。  123for j := 7; j &amp;lt;= 9; j++ &amp;#123;    f">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-09T01:07:18.215Z">
+<meta property="og:updated_time" content="2017-11-09T01:27:21.638Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Go by Example 中文：值，变量，常量">
-<meta name="twitter:description" content="一、值Go 拥有各值类型，包括字符串，整形，浮点型，布尔型等。下面是一些基本的例子。 123456789101112131415package mainimport &amp;quot;fmt&amp;quot;func main() &amp;#123;    //字符串可以通过 + 连接。    fmt.Println(&amp;quot;go&amp;quot; + &amp;quot;lang&amp;quot;)        //整数和浮点">
+<meta name="twitter:title" content="Go by Example 中文：for循环，if else分支，switch分支结构">
+<meta name="twitter:description" content="一、for循环for 是 Go 中唯一的循环结构。这里有 for 循环的三个基本使用方式。   最常用的方式，带单个循环条件。  12345i := 1for i &amp;lt;= 3 &amp;#123;    fmt.Println(i)    i = i + 1&amp;#125;  经典的初始化/条件/后续形式 for 循环。  123for j := 7; j &amp;lt;= 9; j++ &amp;#123;    f">
 
 
 
@@ -134,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://macrocheng.me/2017/11/09/go-by-example-zh-1/"/>
+  <link rel="canonical" href="http://macrocheng.me/2017/11/09/go-by-example-zh-2/"/>
 
 
 
 
 
-  <title>Go by Example 中文：值，变量，常量 | Macro Cheng - Coding is an ART!</title>
+  <title>Go by Example 中文：for循环，if else分支，switch分支结构 | Macro Cheng - Coding is an ART!</title>
   
 
 
@@ -305,7 +305,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://macrocheng.me/2017/11/09/go-by-example-zh-1/">
+    <link itemprop="mainEntityOfPage" href="http://macrocheng.me/2017/11/09/go-by-example-zh-2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Macro Cheng">
@@ -322,7 +322,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Go by Example 中文：值，变量，常量</h1>
+          <h1 class="post-title" itemprop="name headline">Go by Example 中文：for循环，if else分支，switch分支结构</h1>
         
 
         <div class="post-meta">
@@ -334,7 +334,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-09T09:06:25+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-09T09:26:36+08:00">
                 2017-11-09
               </time>
             
@@ -396,15 +396,32 @@
       
 
       
-        <h1 id="一、值"><a href="#一、值" class="headerlink" title="一、值"></a>一、值</h1><p>Go 拥有各值类型，包括字符串，整形，浮点型，布尔型等。下面是一些基本的例子。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">package main</div><div class="line">import &quot;fmt&quot;</div><div class="line">func main() &#123;</div><div class="line">    //字符串可以通过 + 连接。</div><div class="line">    fmt.Println(&quot;go&quot; + &quot;lang&quot;)</div><div class="line">    </div><div class="line">    //整数和浮点数</div><div class="line">    fmt.Println(&quot;1+1 =&quot;, 1+1)</div><div class="line">    fmt.Println(&quot;7.0/3.0 =&quot;, 7.0/3.0)</div><div class="line">    </div><div class="line">    //布尔型，还有你想要的逻辑运算符。</div><div class="line">    fmt.Println(true &amp;&amp; false)</div><div class="line">    fmt.Println(true || false)</div><div class="line">    fmt.Println(!true)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ go run values.go</div><div class="line">golang</div><div class="line">1+1 = 2</div><div class="line">7.0/3.0 = 2.3333333333333335</div><div class="line">false</div><div class="line">true</div><div class="line">false</div></pre></td></tr></table></figure>
-<h1 id="二、变量"><a href="#二、变量" class="headerlink" title="二、变量"></a>二、变量</h1><p>在 Go 中，变量 被显式声明，并被编译器所用来检查函数调用时的类型正确性</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">package main</div><div class="line">import &quot;fmt&quot;</div><div class="line">func main() &#123;</div><div class="line">    //var 声明 1 个或者多个变量。</div><div class="line">    var a string = &quot;initial&quot;</div><div class="line">    fmt.Println(a)</div><div class="line">    </div><div class="line">    //你可以申明一次性声明多个变量。</div><div class="line">    var b, c int = 1, 2</div><div class="line">    fmt.Println(b, c)</div><div class="line">    </div><div class="line">    //Go 将自动推断已经初始化的变量类型。</div><div class="line">    var d = true</div><div class="line">    fmt.Println(d)</div><div class="line">    </div><div class="line">    //声明变量且没有给出对应的初始值时，变量将会初始化为零值 。例如，一个 int 的零值是 0。</div><div class="line">    var e int</div><div class="line">    fmt.Println(e)</div><div class="line"></div><div class="line">    //:= 语句是申明并初始化变量的简写，例如这个例子中的 var f string = &quot;short&quot;。</div><div class="line">    f := &quot;short&quot;</div><div class="line">    fmt.Println(f)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">	</div><div class="line">$ go run variables.go</div><div class="line">initial</div><div class="line">1 2</div><div class="line">true</div><div class="line">0</div><div class="line">short</div></pre></td></tr></table></figure>
-<h1 id="三、常量"><a href="#三、常量" class="headerlink" title="三、常量"></a>三、常量</h1><p>Go 支持字符、字符串、布尔和数值 常量 。   </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">package main</div><div class="line">import &quot;fmt&quot;</div><div class="line">import &quot;math&quot;</div><div class="line"></div><div class="line">//const 用于声明一个常量。</div><div class="line">const s string = &quot;constant&quot;</div><div class="line">func main() &#123;</div><div class="line">    fmt.Println(s)</div><div class="line">    </div><div class="line">    //const 语句可以出现在任何 var 语句可以出现的地方</div><div class="line">    const n = 500000000</div><div class="line"></div><div class="line">    //常数表达式可以执行任意精度的运算</div><div class="line">    const d = 3e20 / n</div><div class="line">    fmt.Println(d)</div><div class="line"></div><div class="line">    //数值型常量是没有确定的类型的，直到它们被给定了一个类型，比如说一次显示的类型转化。</div><div class="line">    fmt.Println(int64(d))</div><div class="line">    </div><div class="line">    //当上下文需要时，一个数可以被给定一个类型，比如变量赋值或者函数调用。举个例子，这里的 math.Sin函数需要一个 float64 的参数。</div><div class="line">    fmt.Println(math.Sin(n))</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ go run constant.go </div><div class="line">constant</div><div class="line">6e+11</div><div class="line">600000000000</div><div class="line">-0.28470407323754404</div></pre></td></tr></table></figure>
+        <h1 id="一、for循环"><a href="#一、for循环" class="headerlink" title="一、for循环"></a>一、for循环</h1><p>for 是 Go 中唯一的循环结构。这里有 for 循环的三个基本使用方式。 </p>
+<ol>
+<li>最常用的方式，带单个循环条件。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">i := 1</div><div class="line">for i &lt;= 3 &#123;</div><div class="line">    fmt.Println(i)</div><div class="line">    i = i + 1</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li>经典的初始化/条件/后续形式 for 循环。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">for j := 7; j &lt;= 9; j++ &#123;</div><div class="line">    fmt.Println(j)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li>不带条件的 for 循环将一直执行，直到在循环体内使用了 break 或者 return 来跳出循环。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">for &#123;</div><div class="line">    fmt.Println(&quot;loop&quot;)</div><div class="line">    break</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>完整的实例代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">package main</div><div class="line">import &quot;fmt&quot;</div><div class="line">func main() &#123;</div><div class="line">    </div><div class="line">    //最常用的方式，带单个循环条件。</div><div class="line">    i := 1</div><div class="line">    for i &lt;= 3 &#123;</div><div class="line">        fmt.Println(i)</div><div class="line">        i = i + 1</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    //经典的初始化/条件/后续形式 for 循环。</div><div class="line">    for j := 7; j &lt;= 9; j++ &#123;</div><div class="line">        fmt.Println(j)</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    //不带条件的 for 循环将一直执行，直到在循环体内使用了 break 或者 return 来跳出循环。</div><div class="line">    for &#123;</div><div class="line">        fmt.Println(&quot;loop&quot;)</div><div class="line">        break</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$ go run for.go</div><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">loop</div></pre></td></tr></table></figure>
+<p>在教程后面，当我们学到 rang 语句，channels，以及其他数据结构时，将会看到一些 for 的其它使用形式。</p>
+<h1 id="二、if-else-分支"><a href="#二、if-else-分支" class="headerlink" title="二、if/else 分支"></a>二、if/else 分支</h1><p>if 和 else 分支结构在 Go 中当然是直接了当的了。   </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">package main</div><div class="line">import &quot;fmt&quot;</div><div class="line">func main() &#123;</div><div class="line"></div><div class="line">    //这里是一个基本的例子。</div><div class="line">    if 7%2 == 0 &#123;</div><div class="line">        fmt.Println(&quot;7 is even&quot;)</div><div class="line">    &#125; else &#123;</div><div class="line">        fmt.Println(&quot;7 is odd&quot;)</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    //你可以不要 else 只用 if 语句。</div><div class="line">    if 8%4 == 0 &#123;</div><div class="line">        fmt.Println(&quot;8 is divisible by 4&quot;)</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    //在条件语句之前可以有一个语句；任何在这里声明的变量都可以在所有的条件分支中使用。</div><div class="line">    if num := 9; num &lt; 0 &#123;</div><div class="line">        fmt.Println(num, &quot;is negative&quot;)</div><div class="line">    &#125; else if num &lt; 10 &#123;</div><div class="line">        fmt.Println(num, &quot;has 1 digit&quot;)</div><div class="line">    &#125; else &#123;</div><div class="line">        fmt.Println(num, &quot;has multiple digits&quot;)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>注意，在 Go 中，你可以不适用圆括号，但是花括号是需要的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ go run if-else.go </div><div class="line">7 is odd</div><div class="line">8 is divisible by 4</div><div class="line">9 has 1 digit</div></pre></td></tr></table></figure>
+<p>Go 里没有三目运算符，所以即使你只需要基本的条件判断，你仍需要使用完整的 if 语句。</p>
+<h1 id="三、switch分支结构"><a href="#三、switch分支结构" class="headerlink" title="三、switch分支结构"></a>三、switch分支结构</h1><p>switch ，方便的条件分支语句。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">package main</div><div class="line">import &quot;fmt&quot;</div><div class="line">import &quot;time&quot;</div><div class="line">func main() &#123;</div><div class="line">    </div><div class="line">    //一个基本的 switch。</div><div class="line">    i := 2</div><div class="line">    fmt.Print(&quot;write &quot;, i, &quot; as &quot;)</div><div class="line">    switch i &#123;</div><div class="line">    case 1:</div><div class="line">        fmt.Println(&quot;one&quot;)</div><div class="line">    case 2:</div><div class="line">        fmt.Println(&quot;two&quot;)</div><div class="line">    case 3:</div><div class="line">        fmt.Println(&quot;three&quot;)</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    //在一个 case 语句中，你可以使用逗号来分隔多个表达式。在这个例子中，我们很好的使用了可选的default 分支。</div><div class="line">    switch time.Now().Weekday() &#123;</div><div class="line">    case time.Saturday, time.Sunday:</div><div class="line">        fmt.Println(&quot;it&apos;s the weekend&quot;)</div><div class="line">    default:</div><div class="line">        fmt.Println(&quot;it&apos;s a weekday&quot;)</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //不带表达式的 switch 是实现 if/else 逻辑的另一种方式。这里展示了 case 表达式是如何使用非常量的。</div><div class="line">    t := time.Now()</div><div class="line">    switch &#123;</div><div class="line">    case t.Hour() &lt; 12:</div><div class="line">        fmt.Println(&quot;it&apos;s before noon&quot;)</div><div class="line">    default:</div><div class="line">        fmt.Println(&quot;it&apos;s after noon&quot;)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ go run switch.go </div><div class="line">write 2 as two</div><div class="line">it&apos;s the weekend</div><div class="line">it&apos;s before noon</div></pre></td></tr></table></figure>
+
       
     </div>
 
@@ -446,8 +463,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/09/go-by-example-zh-hello-world/" rel="next" title="Go by Example 中文：你好，世界">
-                <i class="fa fa-chevron-left"></i> Go by Example 中文：你好，世界
+              <a href="/2017/11/09/go-by-example-zh-1/" rel="next" title="Go by Example 中文：值，变量，常量">
+                <i class="fa fa-chevron-left"></i> Go by Example 中文：值，变量，常量
               </a>
             
           </div>
@@ -455,10 +472,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/11/09/go-by-example-zh-2/" rel="prev" title="Go by Example 中文：for循环，if else分支，switch分支结构">
-                Go by Example 中文：for循环，if else分支，switch分支结构 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -595,7 +608,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、值"><span class="nav-number">1.</span> <span class="nav-text">一、值</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、变量"><span class="nav-number">2.</span> <span class="nav-text">二、变量</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、常量"><span class="nav-number">3.</span> <span class="nav-text">三、常量</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、for循环"><span class="nav-number">1.</span> <span class="nav-text">一、for循环</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、if-else-分支"><span class="nav-number">2.</span> <span class="nav-text">二、if/else 分支</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、switch分支结构"><span class="nav-number">3.</span> <span class="nav-text">三、switch分支结构</span></a></li></ol></div>
             
 
           </div>

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://macrocheng.me/"/>
-  <updated>2017-11-09T01:07:18.215Z</updated>
+  <updated>2017-11-09T01:27:21.638Z</updated>
   <id>http://macrocheng.me/</id>
   
   <author>
@@ -14,6 +14,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Go by Example 中文：for循环，if else分支，switch分支结构</title>
+    <link href="http://macrocheng.me/2017/11/09/go-by-example-zh-2/"/>
+    <id>http://macrocheng.me/2017/11/09/go-by-example-zh-2/</id>
+    <published>2017-11-09T01:26:36.000Z</published>
+    <updated>2017-11-09T01:27:21.638Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;一、for循环&quot;&gt;&lt;a href=&quot;#一、for循环&quot; class=&quot;headerlink&quot; title=&quot;一、for循环&quot;&gt;&lt;/a&gt;一、for循环&lt;/h1&gt;&lt;p&gt;for 是 Go 中唯一的循环结构。这里有 for 循环的三个基本使用方式。 &lt;/p&gt;
+&lt;ol&gt;
+&lt;
+    
+    </summary>
+    
+      <category term="Go by Example 中文" scheme="http://macrocheng.me/categories/Go-by-Example-%E4%B8%AD%E6%96%87/"/>
+    
+    
+      <category term="GO语言" scheme="http://macrocheng.me/tags/GO%E8%AF%AD%E8%A8%80/"/>
+    
+  </entry>
   
   <entry>
     <title>Go by Example 中文：值，变量，常量</title>
@@ -61,7 +83,7 @@
     <link href="http://macrocheng.me/2017/11/09/go-by-example-zh-content/"/>
     <id>http://macrocheng.me/2017/11/09/go-by-example-zh-content/</id>
     <published>2017-11-09T00:00:00.000Z</published>
-    <updated>2017-11-09T01:09:22.872Z</updated>
+    <updated>2017-11-09T01:27:46.611Z</updated>
     
     <summary type="html">
     
