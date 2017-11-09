@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="GO语言," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Macro Cheng - Coding is an ART!" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="一、数组在 Go 中，数组 是一个固定长度的数列。   1234567891011121314151617181920212223242526272829package mainimport &amp;quot;fmt&amp;quot;func main() &amp;#123;        //这里我们创建了一个数组 a 来存放刚好 5 个 int。元素的类型和长度都是数组类型的一部分。数组默认是零值的，对于 in">
+<meta name="keywords" content="GO语言">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Go by Example 中文：数组，slice切片，map关联数组">
+<meta property="og:url" content="http://macrocheng.me/2017/11/09/go-by-example-zh-3/index.html">
+<meta property="og:site_name" content="Macro Cheng - Coding is an ART!">
+<meta property="og:description" content="一、数组在 Go 中，数组 是一个固定长度的数列。   1234567891011121314151617181920212223242526272829package mainimport &amp;quot;fmt&amp;quot;func main() &amp;#123;        //这里我们创建了一个数组 a 来存放刚好 5 个 int。元素的类型和长度都是数组类型的一部分。数组默认是零值的，对于 in">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-11-09T01:58:03.071Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Go by Example 中文：数组，slice切片，map关联数组">
+<meta name="twitter:description" content="一、数组在 Go 中，数组 是一个固定长度的数列。   1234567891011121314151617181920212223242526272829package mainimport &amp;quot;fmt&amp;quot;func main() &amp;#123;        //这里我们创建了一个数组 a 来存放刚好 5 个 int。元素的类型和长度都是数组类型的一部分。数组默认是零值的，对于 in">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://macrocheng.me/2017/11/09/go-by-example-zh-3/"/>
+
+
+
+
+
+  <title>Go by Example 中文：数组，slice切片，map关联数组 | Macro Cheng - Coding is an ART!</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1262954383&web_id=1262954383" language="JavaScript"></script>
+  </div>
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Macro Cheng - Coding is an ART!</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">编码是一门艺术，指尖流淌出的是一篇篇散文诗，用代码编织思想，用激情点燃梦。</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-weibo">
+          <a href="http://weibo.com/macrocheng" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-weibo"></i> <br />
+            
+            微博
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-weixin">
+          <a href="/weixin/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-weixin"></i> <br />
+            
+            微信
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://macrocheng.me/2017/11/09/go-by-example-zh-3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Macro Cheng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Macro Cheng - Coding is an ART!">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Go by Example 中文：数组，slice切片，map关联数组</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-09T09:57:25+08:00">
+                2017-11-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Go-by-Example-中文/" itemprop="url" rel="index">
+                    <span itemprop="name">Go by Example 中文</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv">本文总阅读量
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="一、数组"><a href="#一、数组" class="headerlink" title="一、数组"></a>一、数组</h1><p>在 Go 中，数组 是一个固定长度的数列。  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">package main</div><div class="line">import &quot;fmt&quot;</div><div class="line">func main() &#123;</div><div class="line">    </div><div class="line">    //这里我们创建了一个数组 a 来存放刚好 5 个 int。元素的类型和长度都是数组类型的一部分。数组默认是零值的，对于 int 数组来说也就是 0。</div><div class="line">    var a [5]int</div><div class="line">    fmt.Println(&quot;emp:&quot;, a)</div><div class="line"></div><div class="line">    //我们可以使用 array[index] = value 语法来设置数组指定位置的值，或者用 array[index] 得到值。</div><div class="line">    a[4] = 100</div><div class="line">    fmt.Println(&quot;set:&quot;, a)</div><div class="line">    fmt.Println(&quot;get:&quot;, a[4])</div><div class="line"></div><div class="line">    //使用内置函数 len 返回数组的长度</div><div class="line">    fmt.Println(&quot;len:&quot;, len(a))</div><div class="line"></div><div class="line">    //使用这个语法在一行内初始化一个数组</div><div class="line">    b := [5]int&#123;1, 2, 3, 4, 5&#125;</div><div class="line">    fmt.Println(&quot;dcl:&quot;, b)</div><div class="line">    </div><div class="line">    //数组的存储类型是单一的，但是你可以组合这些数据来构造多维的数据结构。</div><div class="line">    var twoD [2][3]int</div><div class="line">    for i := 0; i &lt; 2; i++ &#123;</div><div class="line">        for j := 0; j &lt; 3; j++ &#123;</div><div class="line">            twoD[i][j] = i + j</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    fmt.Println(&quot;2d: &quot;, twoD)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>注意，在使用 fmt.Println 来打印数组的时候，会使用[v1 v2 v3 …] 的格式显示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ go run arrays.go</div><div class="line">emp: [0 0 0 0 0]</div><div class="line">set: [0 0 0 0 100]</div><div class="line">get: 100</div><div class="line">len: 5</div><div class="line">dcl: [1 2 3 4 5]</div><div class="line">2d:  [[0 1 2] [1 2 3]]</div></pre></td></tr></table></figure>
+<p>在典型的 Go 程序中，相对于数组而言，slice 使用的更多。我们将在后面讨论 slice。</p>
+<h1 id="二、slice切片"><a href="#二、slice切片" class="headerlink" title="二、slice切片"></a>二、slice切片</h1><p>Slice 是 Go 中一个关键的数据类型，是一个比数组更加强大的序列接口。   </p>
+<ul>
+<li>不像数组，slice 的类型仅由它所包含的元素决定（不像数组中还需要元素的个数）。要创建一个长度非零的空slice，需要使用内建的方法 make。</li>
+<li>我们可以和数组一样设置和得到值</li>
+<li>len 返回 slice 的长度</li>
+<li>作为基本操作的补充，slice 支持比数组更多的操作。其中一个是内建的 append，它返回一个包含了一个或者多个新值的 slice。</li>
+<li>Slice 也可以被 copy。</li>
+<li>Slice 支持通过 slice[low:high] 语法进行“切片”操作。</li>
+<li>Slice 可以组成多维数据结构。内部的 slice 长度可以不同，这和多位数组不同。</li>
+</ul>
+<p>完整的代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line">package main</div><div class="line">import &quot;fmt&quot;</div><div class="line">func main() &#123;</div><div class="line">//不像数组，slice 的类型仅由它所包含的元素决定（不像数组中还需要元素的个数）。要创建一个长度非零的空slice，需要使用内建的方法 make。这里我们创建了一个长度为3的 string 类型 slice（初始化为零值）。</div><div class="line">    s := make([]string, 3)</div><div class="line">    fmt.Println(&quot;emp:&quot;, s)</div><div class="line">//我们可以和数组一样设置和得到值</div><div class="line">    s[0] = &quot;a&quot;</div><div class="line">    s[1] = &quot;b&quot;</div><div class="line">    s[2] = &quot;c&quot;</div><div class="line">    fmt.Println(&quot;set:&quot;, s)</div><div class="line">    fmt.Println(&quot;get:&quot;, s[2])</div><div class="line">//如你所料，len 返回 slice 的长度</div><div class="line">    fmt.Println(&quot;len:&quot;, len(s))</div><div class="line">//作为基本操作的补充，slice 支持比数组更多的操作。其中一个是内建的 append，它返回一个包含了一个或者多个新值的 slice。注意我们接受返回由 append返回的新的 slice 值。</div><div class="line">    s = append(s, &quot;d&quot;)</div><div class="line">    s = append(s, &quot;e&quot;, &quot;f&quot;)</div><div class="line">    fmt.Println(&quot;apd:&quot;, s)</div><div class="line">//Slice 也可以被 copy。这里我们创建一个空的和 s 有相同长度的 slice c，并且将 s 复制给 c。</div><div class="line">    c := make([]string, len(s))</div><div class="line">    copy(c, s)</div><div class="line">    fmt.Println(&quot;cpy:&quot;, c)</div><div class="line">//Slice 支持通过 slice[low:high] 语法进行“切片”操作。例如，这里得到一个包含元素 s[2], s[3],s[4] 的 slice。</div><div class="line">    l := s[2:5]</div><div class="line">    fmt.Println(&quot;sl1:&quot;, l)</div><div class="line">//这个 slice 从 s[0] 到（但是包含）s[5]。</div><div class="line">    l = s[:5]</div><div class="line">    fmt.Println(&quot;sl2:&quot;, l)</div><div class="line">//这个 slice 从（包含）s[2] 到 slice 的后一个值。</div><div class="line">    l = s[2:]</div><div class="line">    fmt.Println(&quot;sl3:&quot;, l)</div><div class="line">//我们可以在一行代码中声明并初始化一个 slice 变量。</div><div class="line">    t := []string&#123;&quot;g&quot;, &quot;h&quot;, &quot;i&quot;&#125;</div><div class="line">    fmt.Println(&quot;dcl:&quot;, t)</div><div class="line">//Slice 可以组成多维数据结构。内部的 slice 长度可以不同，这和多位数组不同。</div><div class="line">    twoD := make([][]int, 3)</div><div class="line">    for i := 0; i &lt; 3; i++ &#123;</div><div class="line">        innerLen := i + 1</div><div class="line">        twoD[i] = make([]int, innerLen)</div><div class="line">        for j := 0; j &lt; innerLen; j++ &#123;</div><div class="line">            twoD[i][j] = i + j</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    fmt.Println(&quot;2d: &quot;, twoD)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>注意，slice 和数组不同，虽然它们通过 fmt.Println 输出差不多。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">$ go run slices.go</div><div class="line">emp: [  ]</div><div class="line">set: [a b c]</div><div class="line">get: c</div><div class="line">len: 3</div><div class="line">apd: [a b c d e f]</div><div class="line">cpy: [a b c d e f]</div><div class="line">sl1: [c d e]</div><div class="line">sl2: [a b c d e]</div><div class="line">sl3: [c d e f]</div><div class="line">dcl: [g h i]</div><div class="line">2d:  [[0] [1 2] [2 3 4]]</div></pre></td></tr></table></figure>
+<p>看看这个由 Go 团队撰写的一篇<a href="https://blog.golang.org/go-slices-usage-and-internals" target="_blank" rel="external">很棒的博文</a>，获得更多关于 Go 中 slice 的设计和实现细节。<br>现在，我们已经看过了数组和 slice，接下来我们将看看 Go 中的另一个关键的内建数据类型：map。</p>
+<h1 id="三、map关联数组"><a href="#三、map关联数组" class="headerlink" title="三、map关联数组"></a>三、map关联数组</h1><p>map 是 Go 内置关联数据类型（在一些其他的语言中称为哈希 或者字典 ）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">package main</div><div class="line">import &quot;fmt&quot;</div><div class="line">func main() &#123;</div><div class="line">//要创建一个空 map，需要使用内建的 make:make(map[key-type]val-type).</div><div class="line">    m := make(map[string]int)</div><div class="line"></div><div class="line">//使用典型的 make[key] = val 语法来设置键值对。</div><div class="line">    m[&quot;k1&quot;] = 7</div><div class="line">    m[&quot;k2&quot;] = 13</div><div class="line"></div><div class="line">//使用例如 Println 来打印一个 map 将会输出所有的键值对。</div><div class="line">    fmt.Println(&quot;map:&quot;, m)</div><div class="line"></div><div class="line">//使用 name[key] 来获取一个键的值</div><div class="line">    v1 := m[&quot;k1&quot;]</div><div class="line">    fmt.Println(&quot;v1: &quot;, v1)</div><div class="line"></div><div class="line">//当对一个 map 调用内建的 len 时，返回的是键值对数目</div><div class="line">    fmt.Println(&quot;len:&quot;, len(m))</div><div class="line"></div><div class="line">//内建的 delete 可以从一个 map 中移除键值对</div><div class="line">    delete(m, &quot;k2&quot;)</div><div class="line">    fmt.Println(&quot;map:&quot;, m)</div><div class="line"></div><div class="line">//当从一个 map 中取值时，可选的第二返回值指示这个键是否在这个 map 中。这可以用来消除键不存在和键有零值，像 0 或者 &quot;&quot; 而产生的歧义。</div><div class="line">    aaa, prs := m[&quot;k2&quot;]</div><div class="line">	bbb := m[&quot;k2&quot;]</div><div class="line">	fmt.Println(&quot;prs:&quot;, prs)</div><div class="line">	fmt.Println(&quot;aaa:&quot;, aaa)</div><div class="line">	fmt.Println(&quot;bbb:&quot;, bbb)</div><div class="line"></div><div class="line">//你也可以通过这个语法在同一行申明和初始化一个新的map。</div><div class="line">    n := map[string]int&#123;&quot;foo&quot;: 1, &quot;bar&quot;: 2&#125;</div><div class="line">    fmt.Println(&quot;map:&quot;, n)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>注意一个 map 在使用 fmt.Println 打印的时候，是以 map[k:v k:v]的格式输出的.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$ go run maps.go </div><div class="line">map: map[k1:7 k2:13]</div><div class="line">v1:  7</div><div class="line">len: 2</div><div class="line">map: map[k1:7]</div><div class="line">prs: false</div><div class="line">aaa：0</div><div class="line">bbb：0</div><div class="line">map: map[foo:1 bar:2]</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/GO语言/" rel="tag"># GO语言</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/11/09/go-by-example-zh-2/" rel="next" title="Go by Example 中文：for循环，if else分支，switch分支结构">
+                <i class="fa fa-chevron-left"></i> Go by Example 中文：for循环，if else分支，switch分支结构
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Macro Cheng" />
+          <p class="site-author-name" itemprop="name">Macro Cheng</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、数组"><span class="nav-number">1.</span> <span class="nav-text">一、数组</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、slice切片"><span class="nav-number">2.</span> <span class="nav-text">二、slice切片</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、map关联数组"><span class="nav-number">3.</span> <span class="nav-text">三、map关联数组</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Macro Cheng</span>
+</div>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      本站访客数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      本站总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.1"></script>
+
+
+  
+
+</body>
+</html>
