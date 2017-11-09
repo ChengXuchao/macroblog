@@ -302,6 +302,147 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://macrocheng.me/2017/11/09/go-by-example-zh-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Macro Cheng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Macro Cheng - Coding is an ART!">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/09/go-by-example-zh-1/" itemprop="url">Go by Example 中文：值，变量，常量</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-09T09:06:25+08:00">
+                2017-11-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Go-by-Example-中文/" itemprop="url" rel="index">
+                    <span itemprop="name">Go by Example 中文</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="一、值"><a href="#一、值" class="headerlink" title="一、值"></a>一、值</h1><p>Go 拥有各值类型，包括字符串，整形，浮点型，布尔型等。下面是一些基本的例子。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">package main</div><div class="line">import &quot;fmt&quot;</div><div class="line">func main() &#123;</div><div class="line">    //字符串可以通过 + 连接。</div><div class="line">    fmt.Println(&quot;go&quot; + &quot;lang&quot;)</div><div class="line">    </div><div class="line">    //整数和浮点数</div><div class="line">    fmt.Println(&quot;1+1 =&quot;, 1+1)</div><div class="line">    fmt.Println(&quot;7.0/3.0 =&quot;, 7.0/3.0)</div><div class="line">    </div><div class="line">    //布尔型，还有你想要的逻辑运算符。</div><div class="line">    fmt.Println(true &amp;&amp; false)</div><div class="line">    fmt.Println(true || false)</div><div class="line">    fmt.Println(!true)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ go run values.go</div><div class="line">golang</div><div class="line">1+1 = 2</div><div class="line">7.0/3.0 = 2.3333333333333335</div><div class="line">false</div><div class="line">true</div><div class="line">false</div></pre></td></tr></table></figure>
+<h1 id="二、变量"><a href="#二、变量" class="headerlink" title="二、变量"></a>二、变量</h1><p>在 Go 中，变量 被显式声明，并被编译器所用来检查函数调用时的类型正确性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">package main</div><div class="line">import &quot;fmt&quot;</div><div class="line">func main() &#123;</div><div class="line">    //var 声明 1 个或者多个变量。</div><div class="line">    var a string = &quot;initial&quot;</div><div class="line">    fmt.Println(a)</div><div class="line">    </div><div class="line">    //你可以申明一次性声明多个变量。</div><div class="line">    var b, c int = 1, 2</div><div class="line">    fmt.Println(b, c)</div><div class="line">    </div><div class="line">    //Go 将自动推断已经初始化的变量类型。</div><div class="line">    var d = true</div><div class="line">    fmt.Println(d)</div><div class="line">    </div><div class="line">    //声明变量且没有给出对应的初始值时，变量将会初始化为零值 。例如，一个 int 的零值是 0。</div><div class="line">    var e int</div><div class="line">    fmt.Println(e)</div><div class="line"></div><div class="line">    //:= 语句是申明并初始化变量的简写，例如这个例子中的 var f string = &quot;short&quot;。</div><div class="line">    f := &quot;short&quot;</div><div class="line">    fmt.Println(f)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">	</div><div class="line">$ go run variables.go</div><div class="line">initial</div><div class="line">1 2</div><div class="line">true</div><div class="line">0</div><div class="line">short</div></pre></td></tr></table></figure>
+<h1 id="三、常量"><a href="#三、常量" class="headerlink" title="三、常量"></a>三、常量</h1><p>Go 支持字符、字符串、布尔和数值 常量 。   </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">package main</div><div class="line">import &quot;fmt&quot;</div><div class="line">import &quot;math&quot;</div><div class="line"></div><div class="line">//const 用于声明一个常量。</div><div class="line">const s string = &quot;constant&quot;</div><div class="line">func main() &#123;</div><div class="line">    fmt.Println(s)</div><div class="line">    </div><div class="line">    //const 语句可以出现在任何 var 语句可以出现的地方</div><div class="line">    const n = 500000000</div><div class="line"></div><div class="line">    //常数表达式可以执行任意精度的运算</div><div class="line">    const d = 3e20 / n</div><div class="line">    fmt.Println(d)</div><div class="line"></div><div class="line">    //数值型常量是没有确定的类型的，直到它们被给定了一个类型，比如说一次显示的类型转化。</div><div class="line">    fmt.Println(int64(d))</div><div class="line">    </div><div class="line">    //当上下文需要时，一个数可以被给定一个类型，比如变量赋值或者函数调用。举个例子，这里的 math.Sin函数需要一个 float64 的参数。</div><div class="line">    fmt.Println(math.Sin(n))</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ go run constant.go </div><div class="line">constant</div><div class="line">6e+11</div><div class="line">600000000000</div><div class="line">-0.28470407323754404</div></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://macrocheng.me/2017/11/09/go-by-example-zh-hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -539,7 +680,7 @@
 </blockquote>
 <p><a href="http://golang.org/" target="_blank" rel="external">Go</a> 是一个被设计用来建立简单，快速和可信赖的软件的开源程序设计语言。   </p>
 <p>Go by Example 是一个实践性的通过带注释的例子程序去介绍 Go。  </p>
-<p><a href="hexo n go-by-example-zh-hello-world">你好，世界</a></p>
+<p><a href="/2017/11/09/go-by-example-zh-hello-world">你好，世界</a><br><a href="/2017/11/09/go-by-example-zh-1">值，变量，常量</a>   </p>
 
           
         
@@ -1402,7 +1543,7 @@ $ cd &lt;folder&gt;
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

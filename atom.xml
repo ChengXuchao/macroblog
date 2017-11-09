@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://macrocheng.me/"/>
-  <updated>2017-11-09T00:50:27.500Z</updated>
+  <updated>2017-11-09T01:07:18.215Z</updated>
   <id>http://macrocheng.me/</id>
   
   <author>
@@ -14,6 +14,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Go by Example 中文：值，变量，常量</title>
+    <link href="http://macrocheng.me/2017/11/09/go-by-example-zh-1/"/>
+    <id>http://macrocheng.me/2017/11/09/go-by-example-zh-1/</id>
+    <published>2017-11-09T01:06:25.000Z</published>
+    <updated>2017-11-09T01:07:18.215Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;一、值&quot;&gt;&lt;a href=&quot;#一、值&quot; class=&quot;headerlink&quot; title=&quot;一、值&quot;&gt;&lt;/a&gt;一、值&lt;/h1&gt;&lt;p&gt;Go 拥有各值类型，包括字符串，整形，浮点型，布尔型等。下面是一些基本的例子。&lt;/p&gt;
+&lt;figure class=&quot;highlig
+    
+    </summary>
+    
+      <category term="Go by Example 中文" scheme="http://macrocheng.me/categories/Go-by-Example-%E4%B8%AD%E6%96%87/"/>
+    
+    
+      <category term="GO语言" scheme="http://macrocheng.me/tags/GO%E8%AF%AD%E8%A8%80/"/>
+    
+  </entry>
   
   <entry>
     <title>Go by Example 中文：你好，世界</title>
@@ -40,7 +61,7 @@
     <link href="http://macrocheng.me/2017/11/09/go-by-example-zh-content/"/>
     <id>http://macrocheng.me/2017/11/09/go-by-example-zh-content/</id>
     <published>2017-11-09T00:00:00.000Z</published>
-    <updated>2017-11-09T00:49:01.156Z</updated>
+    <updated>2017-11-09T01:09:22.872Z</updated>
     
     <summary type="html">
     
