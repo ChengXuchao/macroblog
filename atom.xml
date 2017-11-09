@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://macrocheng.me/"/>
-  <updated>2017-11-08T00:28:14.297Z</updated>
+  <updated>2017-11-09T00:50:27.500Z</updated>
   <id>http://macrocheng.me/</id>
   
   <author>
@@ -14,6 +14,47 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Go by Example 中文：你好，世界</title>
+    <link href="http://macrocheng.me/2017/11/09/go-by-example-zh-hello-world/"/>
+    <id>http://macrocheng.me/2017/11/09/go-by-example-zh-hello-world/</id>
+    <published>2017-11-09T00:44:49.000Z</published>
+    <updated>2017-11-09T00:50:27.500Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Hello,World是学习几乎所有语言的第一个实例，在前面《&lt;a href=&quot;http://macrocheng.me/2017/11/07/go-1-download-install-config/&quot;&gt;GO语言的下载、安装、配置&lt;/a&gt;》最后也有提到。下面是完整的程序代
+    
+    </summary>
+    
+      <category term="Go by Example 中文" scheme="http://macrocheng.me/categories/Go-by-Example-%E4%B8%AD%E6%96%87/"/>
+    
+    
+      <category term="GO语言" scheme="http://macrocheng.me/tags/GO%E8%AF%AD%E8%A8%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Go by Example 中文：目录</title>
+    <link href="http://macrocheng.me/2017/11/09/go-by-example-zh-content/"/>
+    <id>http://macrocheng.me/2017/11/09/go-by-example-zh-content/</id>
+    <published>2017-11-09T00:00:00.000Z</published>
+    <updated>2017-11-09T00:49:01.156Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;最近在学习Go语言，所以先从《Go by Example》这本书的中文版开始。&lt;br&gt;&lt;a href=&quot;https://twitter.com/mmcgrana&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;@mmcgrana&lt;/
+    
+    </summary>
+    
+      <category term="Go by Example 中文" scheme="http://macrocheng.me/categories/Go-by-Example-%E4%B8%AD%E6%96%87/"/>
+    
+    
+      <category term="GO语言" scheme="http://macrocheng.me/tags/GO%E8%AF%AD%E8%A8%80/"/>
+    
+  </entry>
   
   <entry>
     <title>Hexo跳过渲染，创建自定义页面</title>
