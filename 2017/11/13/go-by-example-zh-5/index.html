@@ -95,18 +95,18 @@
 
 
 
-<meta name="description" content="一、值Go 拥有各值类型，包括字符串，整形，浮点型，布尔型等。下面是一些基本的例子。 123456789101112131415package mainimport &amp;quot;fmt&amp;quot;func main() &amp;#123;    //字符串可以通过 + 连接。    fmt.Println(&amp;quot;go&amp;quot; + &amp;quot;lang&amp;quot;)        //整数和浮点">
+<meta name="description" content="一、指针Go 支持 指针，允许在程序中通过引用传递值或者数据结构。 123456789101112131415161718192021222324252627282930package mainimport &amp;quot;fmt&amp;quot;//我们将通过两个函数：zeroval 和 zeroptr 来比较指针和值类型的不同。//zeroval 有一个 int 型参数，所以使用值传递。//zerova">
 <meta name="keywords" content="GO语言">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Go by Example 中文：值，变量，常量">
-<meta property="og:url" content="http://macrocheng.me/2017/11/09/go-by-example-zh-1/index.html">
+<meta property="og:title" content="Go by Example 中文：指针、结构体、方法">
+<meta property="og:url" content="http://macrocheng.me/2017/11/13/go-by-example-zh-5/index.html">
 <meta property="og:site_name" content="Macro Cheng - Coding is an ART!">
-<meta property="og:description" content="一、值Go 拥有各值类型，包括字符串，整形，浮点型，布尔型等。下面是一些基本的例子。 123456789101112131415package mainimport &amp;quot;fmt&amp;quot;func main() &amp;#123;    //字符串可以通过 + 连接。    fmt.Println(&amp;quot;go&amp;quot; + &amp;quot;lang&amp;quot;)        //整数和浮点">
+<meta property="og:description" content="一、指针Go 支持 指针，允许在程序中通过引用传递值或者数据结构。 123456789101112131415161718192021222324252627282930package mainimport &amp;quot;fmt&amp;quot;//我们将通过两个函数：zeroval 和 zeroptr 来比较指针和值类型的不同。//zeroval 有一个 int 型参数，所以使用值传递。//zerova">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-09T01:07:18.215Z">
+<meta property="og:updated_time" content="2017-11-13T09:58:49.138Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Go by Example 中文：值，变量，常量">
-<meta name="twitter:description" content="一、值Go 拥有各值类型，包括字符串，整形，浮点型，布尔型等。下面是一些基本的例子。 123456789101112131415package mainimport &amp;quot;fmt&amp;quot;func main() &amp;#123;    //字符串可以通过 + 连接。    fmt.Println(&amp;quot;go&amp;quot; + &amp;quot;lang&amp;quot;)        //整数和浮点">
+<meta name="twitter:title" content="Go by Example 中文：指针、结构体、方法">
+<meta name="twitter:description" content="一、指针Go 支持 指针，允许在程序中通过引用传递值或者数据结构。 123456789101112131415161718192021222324252627282930package mainimport &amp;quot;fmt&amp;quot;//我们将通过两个函数：zeroval 和 zeroptr 来比较指针和值类型的不同。//zeroval 有一个 int 型参数，所以使用值传递。//zerova">
 
 
 
@@ -134,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://macrocheng.me/2017/11/09/go-by-example-zh-1/"/>
+  <link rel="canonical" href="http://macrocheng.me/2017/11/13/go-by-example-zh-5/"/>
 
 
 
 
 
-  <title>Go by Example 中文：值，变量，常量 | Macro Cheng - Coding is an ART!</title>
+  <title>Go by Example 中文：指针、结构体、方法 | Macro Cheng - Coding is an ART!</title>
   
 
 
@@ -305,7 +305,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://macrocheng.me/2017/11/09/go-by-example-zh-1/">
+    <link itemprop="mainEntityOfPage" href="http://macrocheng.me/2017/11/13/go-by-example-zh-5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Macro Cheng">
@@ -322,7 +322,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Go by Example 中文：值，变量，常量</h1>
+          <h1 class="post-title" itemprop="name headline">Go by Example 中文：指针、结构体、方法</h1>
         
 
         <div class="post-meta">
@@ -334,8 +334,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-09T09:06:25+08:00">
-                2017-11-09
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-13T17:58:05+08:00">
+                2017-11-13
               </time>
             
 
@@ -396,15 +396,17 @@
       
 
       
-        <h1 id="一、值"><a href="#一、值" class="headerlink" title="一、值"></a>一、值</h1><p>Go 拥有各值类型，包括字符串，整形，浮点型，布尔型等。下面是一些基本的例子。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">package main</div><div class="line">import &quot;fmt&quot;</div><div class="line">func main() &#123;</div><div class="line">    //字符串可以通过 + 连接。</div><div class="line">    fmt.Println(&quot;go&quot; + &quot;lang&quot;)</div><div class="line">    </div><div class="line">    //整数和浮点数</div><div class="line">    fmt.Println(&quot;1+1 =&quot;, 1+1)</div><div class="line">    fmt.Println(&quot;7.0/3.0 =&quot;, 7.0/3.0)</div><div class="line">    </div><div class="line">    //布尔型，还有你想要的逻辑运算符。</div><div class="line">    fmt.Println(true &amp;&amp; false)</div><div class="line">    fmt.Println(true || false)</div><div class="line">    fmt.Println(!true)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ go run values.go</div><div class="line">golang</div><div class="line">1+1 = 2</div><div class="line">7.0/3.0 = 2.3333333333333335</div><div class="line">false</div><div class="line">true</div><div class="line">false</div></pre></td></tr></table></figure>
-<h1 id="二、变量"><a href="#二、变量" class="headerlink" title="二、变量"></a>二、变量</h1><p>在 Go 中，变量 被显式声明，并被编译器所用来检查函数调用时的类型正确性</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">package main</div><div class="line">import &quot;fmt&quot;</div><div class="line">func main() &#123;</div><div class="line">    //var 声明 1 个或者多个变量。</div><div class="line">    var a string = &quot;initial&quot;</div><div class="line">    fmt.Println(a)</div><div class="line">    </div><div class="line">    //你可以申明一次性声明多个变量。</div><div class="line">    var b, c int = 1, 2</div><div class="line">    fmt.Println(b, c)</div><div class="line">    </div><div class="line">    //Go 将自动推断已经初始化的变量类型。</div><div class="line">    var d = true</div><div class="line">    fmt.Println(d)</div><div class="line">    </div><div class="line">    //声明变量且没有给出对应的初始值时，变量将会初始化为零值 。例如，一个 int 的零值是 0。</div><div class="line">    var e int</div><div class="line">    fmt.Println(e)</div><div class="line"></div><div class="line">    //:= 语句是申明并初始化变量的简写，例如这个例子中的 var f string = &quot;short&quot;。</div><div class="line">    f := &quot;short&quot;</div><div class="line">    fmt.Println(f)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">	</div><div class="line">$ go run variables.go</div><div class="line">initial</div><div class="line">1 2</div><div class="line">true</div><div class="line">0</div><div class="line">short</div></pre></td></tr></table></figure>
-<h1 id="三、常量"><a href="#三、常量" class="headerlink" title="三、常量"></a>三、常量</h1><p>Go 支持字符、字符串、布尔和数值 常量 。   </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">package main</div><div class="line">import &quot;fmt&quot;</div><div class="line">import &quot;math&quot;</div><div class="line"></div><div class="line">//const 用于声明一个常量。</div><div class="line">const s string = &quot;constant&quot;</div><div class="line">func main() &#123;</div><div class="line">    fmt.Println(s)</div><div class="line">    </div><div class="line">    //const 语句可以出现在任何 var 语句可以出现的地方</div><div class="line">    const n = 500000000</div><div class="line"></div><div class="line">    //常数表达式可以执行任意精度的运算</div><div class="line">    const d = 3e20 / n</div><div class="line">    fmt.Println(d)</div><div class="line"></div><div class="line">    //数值型常量是没有确定的类型的，直到它们被给定了一个类型，比如说一次显示的类型转化。</div><div class="line">    fmt.Println(int64(d))</div><div class="line">    </div><div class="line">    //当上下文需要时，一个数可以被给定一个类型，比如变量赋值或者函数调用。举个例子，这里的 math.Sin函数需要一个 float64 的参数。</div><div class="line">    fmt.Println(math.Sin(n))</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ go run constant.go </div><div class="line">constant</div><div class="line">6e+11</div><div class="line">600000000000</div><div class="line">-0.28470407323754404</div></pre></td></tr></table></figure>
+        <h1 id="一、指针"><a href="#一、指针" class="headerlink" title="一、指针"></a>一、指针</h1><p>Go 支持 指针，允许在程序中通过引用传递值或者数据结构。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">package main</div><div class="line">import &quot;fmt&quot;</div><div class="line"></div><div class="line">//我们将通过两个函数：zeroval 和 zeroptr 来比较指针和值类型的不同。</div><div class="line">//zeroval 有一个 int 型参数，所以使用值传递。</div><div class="line">//zeroval 将从调用它的那个函数中得到一个 ival形参的拷贝。</div><div class="line">func zeroval(ival int) &#123;</div><div class="line">    ival = 0</div><div class="line">&#125;</div><div class="line"></div><div class="line">//zeroptr 有一和上面不同的 *int 参数，意味着它用了一个 int指针。</div><div class="line">//函数体内的 *iptr 接着解引用 这个指针，从它内存地址得到这个地址对应的当前值。</div><div class="line">//对一个解引用的指针赋值将会改变这个指针引用的真实地址的值。</div><div class="line">func zeroptr(iptr *int) &#123;</div><div class="line">    *iptr = 0</div><div class="line">&#125;</div><div class="line"></div><div class="line">func main() &#123;</div><div class="line">    i := 1</div><div class="line">    fmt.Println(&quot;initial:&quot;, i)</div><div class="line">    zeroval(i)</div><div class="line">    fmt.Println(&quot;zeroval:&quot;, i)</div><div class="line"></div><div class="line">    //通过 &amp;i 语法来取得 i 的内存地址，例如一个变量i 的指针。</div><div class="line">    zeroptr(&amp;i)</div><div class="line">    fmt.Println(&quot;zeroptr:&quot;, i)</div><div class="line"></div><div class="line">    //指针也是可以被打印的。</div><div class="line">    fmt.Println(&quot;pointer:&quot;, &amp;i)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>zeroval 在 main 函数中不能改变 i 的值，但是zeroptr 可以，因为它有一个这个变量的内存地址的引用。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ go run pointers.go</div><div class="line">initial: 1</div><div class="line">zeroval: 1</div><div class="line">zeroptr: 0</div><div class="line">pointer: 0x42131100</div></pre></td></tr></table></figure></p>
+<h1 id="二、结构体"><a href="#二、结构体" class="headerlink" title="二、结构体"></a>二、结构体</h1><p>Go 的结构体 是各个字段字段的类型的集合。这在组织数据时非常有用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">package main</div><div class="line">import &quot;fmt&quot;</div><div class="line"></div><div class="line">//这里的 person 结构体包含了 name 和 age 两个字段。</div><div class="line">type person struct &#123;</div><div class="line">    name string</div><div class="line">    age  int</div><div class="line">&#125;</div><div class="line"></div><div class="line">func main() &#123;</div><div class="line">    </div><div class="line">    //使用这个语法创建了一个新的结构体元素。</div><div class="line">    fmt.Println(person&#123;&quot;Bob&quot;, 20&#125;)</div><div class="line"></div><div class="line">    //你可以在初始化一个结构体元素时指定字段名字。</div><div class="line">    fmt.Println(person&#123;name: &quot;Alice&quot;, age: 30&#125;)</div><div class="line"></div><div class="line">    //省略的字段将被初始化为零值。</div><div class="line">    fmt.Println(person&#123;name: &quot;Fred&quot;&#125;)</div><div class="line"></div><div class="line">    //&amp; 前缀生成一个结构体指针。</div><div class="line">    fmt.Println(&amp;person&#123;name: &quot;Ann&quot;, age: 40&#125;)</div><div class="line"></div><div class="line">    //使用点来访问结构体字段。</div><div class="line">    s := person&#123;name: &quot;Sean&quot;, age: 50&#125;</div><div class="line">    fmt.Println(s.name)</div><div class="line"></div><div class="line">    //也可以对结构体指针使用. - 指针会被自动解引用。</div><div class="line">    sp := &amp;s</div><div class="line">    fmt.Println(sp.age)</div><div class="line"></div><div class="line">    //结构体是可变的。</div><div class="line">    sp.age = 51</div><div class="line">    fmt.Println(sp.age)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$ go run structs.go</div><div class="line">&#123;Bob 20&#125;</div><div class="line">&#123;Alice 30&#125;</div><div class="line">&#123;Fred 0&#125;</div><div class="line">&amp;&#123;Ann 40&#125;</div><div class="line">Sean</div><div class="line">50</div><div class="line">51</div></pre></td></tr></table></figure>
+<h1 id="三、方法"><a href="#三、方法" class="headerlink" title="三、方法"></a>三、方法</h1><p>Go 支持在结构体类型中定义方法 。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">package main</div><div class="line">import &quot;fmt&quot;</div><div class="line">type rect struct &#123;</div><div class="line">    width, height int</div><div class="line">&#125;</div><div class="line"></div><div class="line">//这里的 area 方法有一个接收器类型 rect。</div><div class="line">func (r *rect) area() int &#123;</div><div class="line">    return r.width * r.height</div><div class="line">&#125;</div><div class="line"></div><div class="line">//可以为值类型或者指针类型的接收器定义方法。这里是一个值类型接收器的例子。</div><div class="line">func (r rect) perim() int &#123;</div><div class="line">    return 2*r.width + 2*r.height</div><div class="line">&#125;</div><div class="line"></div><div class="line">func main() &#123;</div><div class="line">    r := rect&#123;width: 10, height: 5&#125;</div><div class="line"></div><div class="line">    //这里我们调用上面为结构体定义的两个方法。</div><div class="line">    fmt.Println(&quot;area: &quot;, r.area())</div><div class="line">    fmt.Println(&quot;perim:&quot;, r.perim())</div><div class="line"></div><div class="line">    //Go 自动处理方法调用时的值和指针之间的转化。你可以使用指针来调用方法来避免在方法调用时产生一个拷贝，或者让方法能够改变接受的数据。</div><div class="line">    rp := &amp;r</div><div class="line">    fmt.Println(&quot;area: &quot;, rp.area())</div><div class="line">    fmt.Println(&quot;perim:&quot;, rp.perim())</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ go run methods.go </div><div class="line">area:  50</div><div class="line">perim: 30</div><div class="line">area:  50</div><div class="line">perim: 30</div></pre></td></tr></table></figure>
+<p>接下来我们将 Go 语言中组织和命名相关的方法集合的机制：接口。</p>
+
       
     </div>
 
@@ -446,8 +448,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/09/go-by-example-zh-hello-world/" rel="next" title="Go by Example 中文：你好，世界">
-                <i class="fa fa-chevron-left"></i> Go by Example 中文：你好，世界
+              <a href="/2017/11/13/go-by-example-zh-4/" rel="next" title="Go by Example 中文：Range 遍历、函数、多返回值、变参函数、闭包、递归">
+                <i class="fa fa-chevron-left"></i> Go by Example 中文：Range 遍历、函数、多返回值、变参函数、闭包、递归
               </a>
             
           </div>
@@ -455,10 +457,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/11/09/go-by-example-zh-2/" rel="prev" title="Go by Example 中文：for循环，if else分支，switch分支结构">
-                Go by Example 中文：for循环，if else分支，switch分支结构 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -595,7 +593,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、值"><span class="nav-number">1.</span> <span class="nav-text">一、值</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、变量"><span class="nav-number">2.</span> <span class="nav-text">二、变量</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、常量"><span class="nav-number">3.</span> <span class="nav-text">三、常量</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、指针"><span class="nav-number">1.</span> <span class="nav-text">一、指针</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、结构体"><span class="nav-number">2.</span> <span class="nav-text">二、结构体</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、方法"><span class="nav-number">3.</span> <span class="nav-text">三、方法</span></a></li></ol></div>
             
 
           </div>
