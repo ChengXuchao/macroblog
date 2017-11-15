@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://macrocheng.me/"/>
-  <updated>2017-11-13T09:58:49.138Z</updated>
+  <updated>2017-11-15T02:20:05.413Z</updated>
   <id>http://macrocheng.me/</id>
   
   <author>
@@ -14,6 +14,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>如何在CentOS上使用Firefox这种带图形界面的软件</title>
+    <link href="http://macrocheng.me/2017/11/15/use-firefox-on-centos/"/>
+    <id>http://macrocheng.me/2017/11/15/use-firefox-on-centos/</id>
+    <published>2017-11-15T02:13:59.000Z</published>
+    <updated>2017-11-15T02:20:05.413Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;我的服务器是CentOS系统，我现在有这么一个需求，需要在服务器上打开firefox浏览器浏览一个网页，然后就开始查看能怎么解决，本地连接服务器的时候用的是XShell。终于折腾半天，弄了出来。&lt;/p&gt;
+&lt;h1 id=&quot;1-安装Xmanager。&quot;&gt;&lt;a href=&quot;#1-
+    
+    </summary>
+    
+      <category term="运维日常" scheme="http://macrocheng.me/categories/%E8%BF%90%E7%BB%B4%E6%97%A5%E5%B8%B8/"/>
+    
+    
+      <category term="CentOS" scheme="http://macrocheng.me/tags/CentOS/"/>
+    
+      <category term="XShell" scheme="http://macrocheng.me/tags/XShell/"/>
+    
+      <category term="Xmanager" scheme="http://macrocheng.me/tags/Xmanager/"/>
+    
+      <category term="SSH" scheme="http://macrocheng.me/tags/SSH/"/>
+    
+  </entry>
   
   <entry>
     <title>Go by Example 中文：指针、结构体、方法</title>

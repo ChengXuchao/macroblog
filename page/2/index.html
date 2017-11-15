@@ -302,6 +302,148 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://macrocheng.me/2017/11/06/how-to-customize-404-page/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Macro Cheng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Macro Cheng - Coding is an ART!">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/06/how-to-customize-404-page/" itemprop="url">Hexo如何自定义404页面</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-06T22:44:23+08:00">
+                2017-11-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/开发笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">开发笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="一、如何自定义"><a href="#一、如何自定义" class="headerlink" title="一、如何自定义"></a>一、如何自定义</h3><p>1.1 当别人访问到我们网站的一个不存在的地址的时候，这时候会跳转到404页面，那么我们这时候有必要来自己自定义一下404的页面。</p>
+<p>1.2 说起来404页面的自定义在Hexo中非常的简单，只需要在pulic目录中新建一个404.html就可以，然后这个404页面你希望他长成什么样子就在这个页面里面把他设计成什么样子就可以了。  </p>
+<h3 id="二、自定义腾讯公益页面为404页面"><a href="#二、自定义腾讯公益页面为404页面" class="headerlink" title="二、自定义腾讯公益页面为404页面"></a>二、自定义腾讯公益页面为404页面</h3><p>2.1 最简单的自定义页面可以是这样的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;//qzonestyle.gtimg.cn/qzone/hybrid/app/404/search_children.js&quot; charset=&quot;utf-8&quot; homePageUrl=&quot;/&quot; homePageName=&quot;返回主页&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<p>其中script就是内嵌的腾讯公益的代码。<br>腾讯公益网址：<a href="http://www.qq.com/404" target="_blank" rel="external">http://www.qq.com/404</a></p>
+<p>2.2 但是这里由于我使用了NexT的主题，所以我希望我的404页面也是可以拥有同样的风格，所以我就需要将这个公益的内容内嵌到网页里面，但是由于这段script会直接把页面内容全部覆盖，最后只剩下公益内容，所以我就用到了iframe。   </p>
+<p>首先，自定义一个gy.html，网页的内容就是上面的代码。但是又不希望gy.html页面被渲染，所以就放在了source下面的的nolayout文件夹下面。<br>然后设置nolayout为不渲染的文件夹：<br>_config.yml文件中设置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">skip_render: nolayout/**</div></pre></td></tr></table></figure></p>
+<p>然后再新建一个404.html,代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">---</div><div class="line">title: 404 , Not Found</div><div class="line">date: 2017-11-07 17:36:38</div><div class="line">---</div><div class="line">&lt;html&gt;</div><div class="line">&lt;iframe scrolling=&apos;no&apos; frameborder=&apos;0&apos; id=&quot;myiframe&quot; src=&apos;nolayout/gy.html&apos; width=&quot;100%&quot; height=&quot;800&quot; style=&apos;display:block;&apos;&gt;&lt;/iframe&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+<p>这样自定义的404页面就完成了。最后的效果图：<br><img src="/2017/11/06/how-to-customize-404-page/404.png" alt="image"></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://macrocheng.me/2017/11/06/how-to-insert-image/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -677,7 +819,7 @@ $ cd &lt;folder&gt;
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -688,7 +830,7 @@ $ cd &lt;folder&gt;
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -699,7 +841,7 @@ $ cd &lt;folder&gt;
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
