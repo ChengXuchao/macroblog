@@ -95,28 +95,18 @@
 
 
 
-<meta name="description" content="一、Go语言下载go语言官方下载地址：https://golang.org/dl/找到适用自己系统版本下载，我是在Windows下开发，所以就下Windows版本就好了。 二、Go语言安装下载完成后双击安装包进行安装。我都是一路默认下去也就是安装在C:\Go\目录。 三、安装后目录结构说明Go语言安装之后，C:\Go目录下一共有9个目录与9个文件，如下图：       api  — 目录，包含所有">
+<meta name="description" content="一、通道通道 是连接多个 Go 协程的管道。你可以从一个 Go 协程将值发送到通道，然后在别的 Go 协程中接收。 12345678910111213package mainimport &amp;quot;fmt&amp;quot;func main() &amp;#123;    //使用 make(chan val-type) 创建一个新的通道。通道类型就是他们需要传递值的类型。    messages := ma">
 <meta name="keywords" content="GO语言">
 <meta property="og:type" content="article">
-<meta property="og:title" content="GO语言的下载、安装、配置">
-<meta property="og:url" content="http://macrocheng.me/2017/11/07/go-1-download-install-config/index.html">
+<meta property="og:title" content="Go by Example 中文：通道、通道缓冲、通道同步、通道方向">
+<meta property="og:url" content="http://macrocheng.me/2017/11/16/go-by-example-zh-7/index.html">
 <meta property="og:site_name" content="Macro Cheng - Coding is an ART!">
-<meta property="og:description" content="一、Go语言下载go语言官方下载地址：https://golang.org/dl/找到适用自己系统版本下载，我是在Windows下开发，所以就下Windows版本就好了。 二、Go语言安装下载完成后双击安装包进行安装。我都是一路默认下去也就是安装在C:\Go\目录。 三、安装后目录结构说明Go语言安装之后，C:\Go目录下一共有9个目录与9个文件，如下图：       api  — 目录，包含所有">
+<meta property="og:description" content="一、通道通道 是连接多个 Go 协程的管道。你可以从一个 Go 协程将值发送到通道，然后在别的 Go 协程中接收。 12345678910111213package mainimport &amp;quot;fmt&amp;quot;func main() &amp;#123;    //使用 make(chan val-type) 创建一个新的通道。通道类型就是他们需要传递值的类型。    messages := ma">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://macrocheng.me/2017/11/07/go-1-download-install-config/go1.png">
-<meta property="og:image" content="http://macrocheng.me/2017/11/07/go-1-download-install-config/go2.png">
-<meta property="og:image" content="http://macrocheng.me/2017/11/07/go-1-download-install-config/go3.png">
-<meta property="og:image" content="http://macrocheng.me/2017/11/07/go-1-download-install-config/go4.png">
-<meta property="og:image" content="http://macrocheng.me/2017/11/07/go-1-download-install-config/go5.png">
-<meta property="og:image" content="http://macrocheng.me/2017/11/07/go-1-download-install-config/go6.png">
-<meta property="og:image" content="http://macrocheng.me/2017/11/07/go-1-download-install-config/go7.png">
-<meta property="og:image" content="http://macrocheng.me/2017/11/07/go-1-download-install-config/go8.png">
-<meta property="og:image" content="http://macrocheng.me/2017/11/07/go-1-download-install-config/go9.png">
-<meta property="og:updated_time" content="2017-11-07T09:26:07.886Z">
+<meta property="og:updated_time" content="2017-11-16T07:46:32.383Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="GO语言的下载、安装、配置">
-<meta name="twitter:description" content="一、Go语言下载go语言官方下载地址：https://golang.org/dl/找到适用自己系统版本下载，我是在Windows下开发，所以就下Windows版本就好了。 二、Go语言安装下载完成后双击安装包进行安装。我都是一路默认下去也就是安装在C:\Go\目录。 三、安装后目录结构说明Go语言安装之后，C:\Go目录下一共有9个目录与9个文件，如下图：       api  — 目录，包含所有">
-<meta name="twitter:image" content="http://macrocheng.me/2017/11/07/go-1-download-install-config/go1.png">
+<meta name="twitter:title" content="Go by Example 中文：通道、通道缓冲、通道同步、通道方向">
+<meta name="twitter:description" content="一、通道通道 是连接多个 Go 协程的管道。你可以从一个 Go 协程将值发送到通道，然后在别的 Go 协程中接收。 12345678910111213package mainimport &amp;quot;fmt&amp;quot;func main() &amp;#123;    //使用 make(chan val-type) 创建一个新的通道。通道类型就是他们需要传递值的类型。    messages := ma">
 
 
 
@@ -144,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://macrocheng.me/2017/11/07/go-1-download-install-config/"/>
+  <link rel="canonical" href="http://macrocheng.me/2017/11/16/go-by-example-zh-7/"/>
 
 
 
 
 
-  <title>GO语言的下载、安装、配置 | Macro Cheng - Coding is an ART!</title>
+  <title>Go by Example 中文：通道、通道缓冲、通道同步、通道方向 | Macro Cheng - Coding is an ART!</title>
   
 
 
@@ -315,7 +305,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://macrocheng.me/2017/11/07/go-1-download-install-config/">
+    <link itemprop="mainEntityOfPage" href="http://macrocheng.me/2017/11/16/go-by-example-zh-7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Macro Cheng">
@@ -332,7 +322,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">GO语言的下载、安装、配置</h1>
+          <h1 class="post-title" itemprop="name headline">Go by Example 中文：通道、通道缓冲、通道同步、通道方向</h1>
         
 
         <div class="post-meta">
@@ -344,8 +334,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-07T16:46:42+08:00">
-                2017-11-07
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-16T15:45:47+08:00">
+                2017-11-16
               </time>
             
 
@@ -367,8 +357,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/开发笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">开发笔记</span>
+                  <a href="/categories/Go-by-Example-中文/" itemprop="url" rel="index">
+                    <span itemprop="name">Go by Example 中文</span>
                   </a>
                 </span>
 
@@ -406,21 +396,21 @@
       
 
       
-        <h3 id="一、Go语言下载"><a href="#一、Go语言下载" class="headerlink" title="一、Go语言下载"></a>一、Go语言下载</h3><p>go语言官方下载地址：<a href="https://golang.org/dl/" target="_blank" rel="external">https://golang.org/dl/</a><br><img src="/2017/11/07/go-1-download-install-config/go1.png" alt="image"><br>找到适用自己系统版本下载，我是在Windows下开发，所以就下Windows版本就好了。</p>
-<h3 id="二、Go语言安装"><a href="#二、Go语言安装" class="headerlink" title="二、Go语言安装"></a>二、Go语言安装</h3><p>下载完成后双击安装包进行安装。我都是一路默认下去也就是安装在C:\Go\目录。</p>
-<h3 id="三、安装后目录结构说明"><a href="#三、安装后目录结构说明" class="headerlink" title="三、安装后目录结构说明"></a>三、安装后目录结构说明</h3><p>Go语言安装之后，C:\Go目录下一共有9个目录与9个文件，如下图：<br><img src="/2017/11/07/go-1-download-install-config/go2.png" alt="image">     </p>
-<blockquote>
-<p>api  — 目录，包含所有API列表，方便IDE使用<br>bin  — 目录，存放编译后的可执行文件<br>blog — 目录，<br>doc  — 目录，帮助文档<br>lib  — 目录，<br>misc — 目录，<br>pkg  — 目录，存放编译后的包文件。pkg中的文件是Go编译生成的<br>src  — 目录，存放项目源文件<br>注：一般，bin和pkg目录可以不创建，go命令会自动创建（如 go install），只需要创建src目录即可。<br>Authors         — 文件，作者列表，用记事本打开<br>CONTRIBUTING.md — 文件，<br>CONTRIBUTORS    — 文件，<br>favicon.ico     — 文件，<br>LICENSE         — 文件，license，用记事本打开<br>PATENTS         — 文件，<br>README.md       — 文件，<br>robots.txt      — 文件，使用robots.txt阻止对网址的访问，详情查看<a href="https://support.google.com/webmasters/answer/6062608?hl=zh-Hans" target="_blank" rel="external">https://support.google.com/webmasters/answer/6062608?hl=zh-Hans</a><br>VERSION         — 文件，版本信息，用记事本打开   </p>
-</blockquote>
-<h3 id="四、设置GO环境变量"><a href="#四、设置GO环境变量" class="headerlink" title="四、设置GO环境变量"></a>四、设置GO环境变量</h3><h4 id="4-1、打开环境变量"><a href="#4-1、打开环境变量" class="headerlink" title="4.1、打开环境变量"></a>4.1、打开环境变量</h4><p><img src="/2017/11/07/go-1-download-install-config/go3.png" alt="image"><br><img src="/2017/11/07/go-1-download-install-config/go4.png" alt="image"><br><img src="/2017/11/07/go-1-download-install-config/go5.png" alt="image">    </p>
-<h4 id="4-2、设置环境变量"><a href="#4-2、设置环境变量" class="headerlink" title="4.2、设置环境变量"></a>4.2、设置环境变量</h4><h5 id="4-2-1、根目录-GOROOT-和-Path"><a href="#4-2-1、根目录-GOROOT-和-Path" class="headerlink" title="4.2.1、根目录 GOROOT 和 Path"></a>4.2.1、根目录 GOROOT 和 Path</h5><p>如果第一步安装使用的是默认安装目录 C:\Go\，那么安装程序就已经将 GOROOT 和 Path 两个环境变量设置好了，无须再对其进行手工设置。<br><img src="/2017/11/07/go-1-download-install-config/go6.png" alt="image"><br><img src="/2017/11/07/go-1-download-install-config/go7.png" alt="image"><br>如果你第一步没有使用默认安装目录，那么需要对上述两个变量进行手工配置，注意 Path 配置时不要影响到其他安装程序(如 Java，Oracle，Maven 等等)。</p>
-<h5 id="4-2-2、查看Go的环境设置"><a href="#4-2-2、查看Go的环境设置" class="headerlink" title="4.2.2、查看Go的环境设置"></a>4.2.2、查看Go的环境设置</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">go env</div></pre></td></tr></table></figure>
-<p><img src="/2017/11/07/go-1-download-install-config/go8.png" alt="image"><br>GOPATH 是代码目标，可以通过修改环境变量来设置</p>
-<h3 id="五、编写第一个-Go-程序"><a href="#五、编写第一个-Go-程序" class="headerlink" title="五、编写第一个 Go 程序"></a>五、编写第一个 Go 程序</h3><p>创建 hello.go 文件并编辑其内容如下：   </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">package main  </div><div class="line">  </div><div class="line">import &quot;fmt&quot;  </div><div class="line">  </div><div class="line">func main() &#123;  </div><div class="line">    fmt.Printf(&quot;hello, world\n&quot;)  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>保存后进入该目录，执行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">go run hello.go</div></pre></td></tr></table></figure>
-<p><img src="/2017/11/07/go-1-download-install-config/go9.png" alt="image"><br>看到 “hello, world” 同时我们也可以看到该目录下生成了hello.exe文件，证明我们的 go 安装成功了。</p>
+        <h1 id="一、通道"><a href="#一、通道" class="headerlink" title="一、通道"></a>一、通道</h1><p>通道 是连接多个 Go 协程的管道。你可以从一个 Go 协程将值发送到通道，然后在别的 Go 协程中接收。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">package main</div><div class="line">import &quot;fmt&quot;</div><div class="line">func main() &#123;</div><div class="line">    //使用 make(chan val-type) 创建一个新的通道。通道类型就是他们需要传递值的类型。</div><div class="line">    messages := make(chan string)</div><div class="line"></div><div class="line">    //使用 channel &lt;- 语法 发送 一个新的值到通道中。这里我们在一个新的 Go 协程中发送 &quot;ping&quot; 到上面创建的messages 通道中。</div><div class="line">    go func() &#123; messages &lt;- &quot;ping&quot; &#125;()</div><div class="line"></div><div class="line">    //使用 &lt;-channel 语法从通道中 接收 一个值。这里将接收我们在上面发送的 &quot;ping&quot; 消息并打印出来。</div><div class="line">    msg := &lt;-messages</div><div class="line">    fmt.Println(msg)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>我们运行程序时，通过通道，消息 “ping” 成功的从一个 Go 协程传到另一个中。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ go run channels.go</div><div class="line">ping</div></pre></td></tr></table></figure>
+<p>默认发送和接收操作是阻塞的，直到发送方和接收方都准备完毕。这个特性允许我们，不使用任何其它的同步操作，来在程序结尾等待消息 “ping”。</p>
+<h1 id="二、通道缓冲"><a href="#二、通道缓冲" class="headerlink" title="二、通道缓冲"></a>二、通道缓冲</h1><p>默认通道是 无缓冲 的，这意味着只有在对应的接收（&lt;- chan）通道准备好接收时，才允许进行发送（chan &lt;-）。可缓存通道允许在没有对应接收方的情况下，缓存限定数量的值。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">package main</div><div class="line">import &quot;fmt&quot;</div><div class="line">func main() &#123;</div><div class="line">    </div><div class="line">    //这里我们 make 了一个通道，最多允许缓存 2 个值。</div><div class="line">    messages := make(chan string, 2)</div><div class="line">    </div><div class="line">    //因为这个通道是有缓冲区的，即使没有一个对应的并发接收方，我们仍然可以发送这些值。</div><div class="line">    messages &lt;- &quot;buffered&quot;</div><div class="line">    messages &lt;- &quot;channel&quot;</div><div class="line"></div><div class="line">    //然后我们可以像前面一样接收这两个值。</div><div class="line">    fmt.Println(&lt;-messages)</div><div class="line">    fmt.Println(&lt;-messages)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ go run channel-buffering.go </div><div class="line">buffered</div><div class="line">channel</div></pre></td></tr></table></figure>
+<p>三、通道同步<br>我们可以使用通道来同步 Go 协程间的执行状态。这里是一个使用阻塞的接受方式来等待一个 Go 协程的运行结束。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">package main</div><div class="line">import &quot;fmt&quot;</div><div class="line">import &quot;time&quot;</div><div class="line"></div><div class="line">//这是一个我们将要在 Go 协程中运行的函数。done 通道将被用于通知其他 Go 协程这个函数已经工作完毕。</div><div class="line">func worker(done chan bool) &#123;</div><div class="line">    fmt.Print(&quot;working...&quot;)</div><div class="line">    time.Sleep(time.Second)</div><div class="line">    fmt.Println(&quot;done&quot;)</div><div class="line"></div><div class="line">    //发送一个值来通知我们已经完工啦。</div><div class="line">    done &lt;- true</div><div class="line">&#125;</div><div class="line"></div><div class="line">func main() &#123;</div><div class="line">    //运行一个 worker Go协程，并给予用于通知的通道。</div><div class="line">    done := make(chan bool, 1)</div><div class="line">    go worker(done)</div><div class="line">    </div><div class="line">    //程序将在接收到通道中 worker 发出的通知前一直阻塞。</div><div class="line">    &lt;-done</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ go run channel-synchronization.go</div><div class="line">working...done</div></pre></td></tr></table></figure>
+<p>如果你把 &lt;- done 这行代码从程序中移除，程序甚至会在 worker还没开始运行时就结束了。</p>
+<h1 id="四、通道方向"><a href="#四、通道方向" class="headerlink" title="四、通道方向"></a>四、通道方向</h1><p>当使用通道作为函数的参数时，你可以指定这个通道是不是只用来发送或者接收值。这个特性提升了程序的类型安全性。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">package main</div><div class="line">import &quot;fmt&quot;</div><div class="line"></div><div class="line">//ping 函数定义了一个只允许发送数据的通道。尝试使用这个通道来接收数据将会得到一个编译时错误。</div><div class="line">func ping(pings chan&lt;- string, msg string) &#123;</div><div class="line">    pings &lt;- msg</div><div class="line">&#125;</div><div class="line"></div><div class="line">//pong 函数允许通道（pings）来接收数据，另一通道（pongs）来发送数据。</div><div class="line">func pong(pings &lt;-chan string, pongs chan&lt;- string) &#123;</div><div class="line">    msg := &lt;-pings</div><div class="line">    pongs &lt;- msg</div><div class="line">&#125;</div><div class="line"></div><div class="line">func main() &#123;</div><div class="line">    pings := make(chan string, 1)</div><div class="line">    pongs := make(chan string, 1)</div><div class="line">    ping(pings, &quot;passed message&quot;)</div><div class="line">    pong(pings, pongs)</div><div class="line">    fmt.Println(&lt;-pongs)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ go run channel-directions.go</div><div class="line">passed message</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -463,8 +453,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/06/how-to-customize-404-page/" rel="next" title="Hexo如何自定义404页面">
-                <i class="fa fa-chevron-left"></i> Hexo如何自定义404页面
+              <a href="/2017/11/16/go-by-example-zh-6/" rel="next" title="Go by Example 中文：接口、错误处理、协程">
+                <i class="fa fa-chevron-left"></i> Go by Example 中文：接口、错误处理、协程
               </a>
             
           </div>
@@ -472,10 +462,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/11/08/hexo-no-layout/" rel="prev" title="Hexo跳过渲染，创建自定义页面">
-                Hexo跳过渲染，创建自定义页面 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -612,7 +598,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、Go语言下载"><span class="nav-number">1.</span> <span class="nav-text">一、Go语言下载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、Go语言安装"><span class="nav-number">2.</span> <span class="nav-text">二、Go语言安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、安装后目录结构说明"><span class="nav-number">3.</span> <span class="nav-text">三、安装后目录结构说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、设置GO环境变量"><span class="nav-number">4.</span> <span class="nav-text">四、设置GO环境变量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1、打开环境变量"><span class="nav-number">4.1.</span> <span class="nav-text">4.1、打开环境变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2、设置环境变量"><span class="nav-number">4.2.</span> <span class="nav-text">4.2、设置环境变量</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#4-2-1、根目录-GOROOT-和-Path"><span class="nav-number">4.2.1.</span> <span class="nav-text">4.2.1、根目录 GOROOT 和 Path</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-2-2、查看Go的环境设置"><span class="nav-number">4.2.2.</span> <span class="nav-text">4.2.2、查看Go的环境设置</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、编写第一个-Go-程序"><span class="nav-number">5.</span> <span class="nav-text">五、编写第一个 Go 程序</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、通道"><span class="nav-number">1.</span> <span class="nav-text">一、通道</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、通道缓冲"><span class="nav-number">2.</span> <span class="nav-text">二、通道缓冲</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四、通道方向"><span class="nav-number">3.</span> <span class="nav-text">四、通道方向</span></a></li></ol></div>
             
 
           </div>

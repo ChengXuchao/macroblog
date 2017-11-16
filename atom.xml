@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://macrocheng.me/"/>
-  <updated>2017-11-16T07:28:48.842Z</updated>
+  <updated>2017-11-16T07:46:32.383Z</updated>
   <id>http://macrocheng.me/</id>
   
   <author>
@@ -14,6 +14,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Go by Example 中文：通道、通道缓冲、通道同步、通道方向</title>
+    <link href="http://macrocheng.me/2017/11/16/go-by-example-zh-7/"/>
+    <id>http://macrocheng.me/2017/11/16/go-by-example-zh-7/</id>
+    <published>2017-11-16T07:45:47.000Z</published>
+    <updated>2017-11-16T07:46:32.383Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;一、通道&quot;&gt;&lt;a href=&quot;#一、通道&quot; class=&quot;headerlink&quot; title=&quot;一、通道&quot;&gt;&lt;/a&gt;一、通道&lt;/h1&gt;&lt;p&gt;通道 是连接多个 Go 协程的管道。你可以从一个 Go 协程将值发送到通道，然后在别的 Go 协程中接收。&lt;/p&gt;
+&lt;fig
+    
+    </summary>
+    
+      <category term="Go by Example 中文" scheme="http://macrocheng.me/categories/Go-by-Example-%E4%B8%AD%E6%96%87/"/>
+    
+    
+      <category term="GO语言" scheme="http://macrocheng.me/tags/GO%E8%AF%AD%E8%A8%80/"/>
+    
+  </entry>
   
   <entry>
     <title>Go by Example 中文：接口、错误处理、协程</title>
@@ -193,7 +214,7 @@
     <link href="http://macrocheng.me/2017/11/09/go-by-example-zh-content/"/>
     <id>http://macrocheng.me/2017/11/09/go-by-example-zh-content/</id>
     <published>2017-11-09T00:00:00.000Z</published>
-    <updated>2017-11-13T09:59:20.901Z</updated>
+    <updated>2017-11-16T07:46:56.012Z</updated>
     
     <summary type="html">
     
