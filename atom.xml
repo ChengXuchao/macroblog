@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://macrocheng.me/"/>
-  <updated>2017-11-16T07:48:31.142Z</updated>
+  <updated>2017-12-04T06:40:46.330Z</updated>
   <id>http://macrocheng.me/</id>
   
   <author>
@@ -14,6 +14,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CentOS安装JAVA</title>
+    <link href="http://macrocheng.me/2017/12/04/16-install-java-on-centos/"/>
+    <id>http://macrocheng.me/2017/12/04/16-install-java-on-centos/</id>
+    <published>2017-12-04T06:36:30.000Z</published>
+    <updated>2017-12-04T06:40:46.330Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h6 id=&quot;1-检查有没有安装java&quot;&gt;&lt;a href=&quot;#1-检查有没有安装java&quot; class=&quot;headerlink&quot; title=&quot;1.检查有没有安装java&quot;&gt;&lt;/a&gt;1.检查有没有安装java&lt;/h6&gt;&lt;figure class=&quot;highlight plai
+    
+    </summary>
+    
+      <category term="开发笔记" scheme="http://macrocheng.me/categories/%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="Java" scheme="http://macrocheng.me/tags/Java/"/>
+    
+      <category term="CentOS" scheme="http://macrocheng.me/tags/CentOS/"/>
+    
+  </entry>
   
   <entry>
     <title>Go by Example 中文：通道、通道缓冲、通道同步、通道方向</title>
